@@ -1,5 +1,6 @@
 import cv2, os, sys
 
+
 def gstreamer_pipeline(capture_width=1280, capture_height=720, 
                        display_width=1280, display_height=720,
                        framerate=60, flip_method=0):
@@ -14,6 +15,10 @@ def gstreamer_pipeline(capture_width=1280, capture_height=720,
         "video/x-raw, format=(string)BGR ! appsink"
     )
 
+# Load the cascade
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+# cam params
 HEIGHT=1280
 WIDTH=1920
 center = (WIDTH / 2, HEIGHT / 2)
@@ -22,19 +27,24 @@ M = cv2.getRotationMatrix2D(center, 180, 1.0)
 nano = True
 if nano:
   print("nano")
-  cam = cv2.VideoCapture(gstreamer_pipeline(), cv2.CAP_GSTREAMER)
-else:
-  # Start Camera
-  cam = cv2.VideoCapture(0)
-  cam.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)  # 3280
-  cam.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT) # 2464
+  cap = cv2.VideoCapture(gstreamer_pipeline(), cv2.CAP_GSTREAMER)
 
 
+# Read the frame
+_, img = cap.read()
+# Convert to grayscale
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# Detect the faces
+faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+# Draw the rectangle around each face
+for (x, y, w, h) in faces:
+    cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
+# Display
+#cv2.imshow('img', img)
 
-if cam.isOpened():
-  print("cam is open")
-  val, img = cam.read()
-  if val:
-    print("good val")
-    cv2.imwrite('output.png', img)
-    #cv2.imwrite('output.png', cv2.warpAffine(img, M, (WIDTH, HEIGHT)))
+# Save image
+cv2.imwrite('face_pic.png', img)
+
+
+# Release the VideoCapture object
+cap.release()

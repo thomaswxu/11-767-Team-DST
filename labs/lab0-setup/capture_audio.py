@@ -1,9 +1,10 @@
-
 import sounddevice as sd
 from scipy.io.wavfile import write
 
 fs = 44100  # Sample rate
-seconds = 3  # Duration of recording
+seconds = 5  # Duration of recording
+
+sd.default.device = 11,18
 
 myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
 sd.wait()  # Wait until recording is finished
