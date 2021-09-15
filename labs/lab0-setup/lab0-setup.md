@@ -45,11 +45,10 @@ The script we wrote uses the camera module to take an image, and then runs a sim
 7. Did you have any trouble getting this running? If so, describe what difficulties you ran into, and how you tried to resolve them.
 
 
-Camera wasn't working
-had to replug into connector
-had to downgrade numpy version
-Downgrading numpy to 1.19.4 (was causing the illegal core dump) error
+Camera wasn't being detected. We had to replug it into the connector, and were successful in locking the CSI latch properly.
+Had to downgrade numpy to 1.19.4 as it was causing the illegal core dump error.
+Changed default sound device for the sounddevice package in capture_audio.py
 
-got opencv... .whl file from Slack
-Did not detect face because mask
-Changed default sound device from sound package in capture_audio.py
+Got opencv working with the .whl file shared on Slack.
+Couldn't detect faces with a face mask, but it worked perfectly without a mask on.
+
