@@ -53,7 +53,7 @@ Couldn't detect faces with a face mask, but it worked perfectly without a mask o
 ~~~
 ---
 ### Face Detection Script
-```
+```python
   
 import cv2, os, sys
 
