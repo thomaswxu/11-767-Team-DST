@@ -11,7 +11,7 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
 Write down 3-5 project ideas your group considered (a few sentences each). Depending on your group and process, the ideas may be very different, or they may be variations on one central idea.
  1. AirBERT is a pretrained model for VLN which can be finetuned for downstream VLN tasks. We propose to compress/distill this model and deploy it on the Jetson Nano, and finally use it for navigating in an environment given a natural language instruction.
 
- 2. VilBERT is a task-agnostic pretrained model for Vision and Language tasks. We plan to make a visual chatbot on the device which can use both visual and language modalities using the compressed/distilled VilBERT.
+ 2.  We plan to make a visual chatbot on the device which can use both visual and language modalities to question or answer using a compressed/distilled model.
     
  3. Automatic speech recognition in noisy environments. We will focus on robustness in spoken language understanding, wherein a robot has to understand and execute speech commands in a typical noisy environment.
 
@@ -71,7 +71,7 @@ The current size of the pre-trained AirBert transormer model is 2.3 gb. Fine-tun
 
 **How you will test those hypotheses: datasets, baselines, ablations, and other experiments or analyses.**
 
-We will be evaluating our model on Room-to-Room (R2R) based on the Matterport3D dataset. R2R contains human-annotated path instruction pairs in previously unseen buildings that are divided into training, seen and unseen validation, and unseen testing sets. We will use the standard VLN evaluation metrics.
+We will be evaluating our model on Room-to-Room (R2R) dataset based on the Matterport3D simulator. R2R contains human-annotated path instruction pairs in previously unseen buildings that are divided into training, seen and unseen validation, and unseen testing sets. We will use the standard VLN evaluation metrics.
 
 – Success rate (SR) measures the percentage of selected paths that stop
 within 3m of the goal. In path selection this is our primary metric of interest.
@@ -97,5 +97,5 @@ This project has a high dependence on being able to run and use the Matterport S
 
 One potential extension of our project will be to first perform zero/few shot evaluation of the pre-trained VLN model on out-of-domain data like every different visual environments and then work on improving model generalization.
 
-Another stretch goal would be building an embodied agent that can actually navigate in a small environment using our model. For that we will have to get rid of the simulator and can come up with a proxy that can perform the same tasks as the simulator.
+Another stretch goal would be building an embodied agent that can actually navigate in a small physical environment using our model. For that we will have to get rid of the simulator and come up with a proxy that can perform the same tasks as the environment simulator.
 
