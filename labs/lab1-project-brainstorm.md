@@ -60,7 +60,7 @@ Could try using adversarial training on the small model to test robustness.
 ----
 Choose one of the ideas you've considered, and outline a project proposal for that idea. This outline will be shared with other groups next class (Tuesday) to get feedback.
 
-**Chosen Idea**: AirBERT
+**Chosen Idea**: Vision-and-language Navigation
 
 **Motivation**
 
