@@ -75,12 +75,27 @@ We will be evaluating our model on Room-to-Room (R2R) based on the Matterport3D 
 
 – Success rate (SR) measures the percentage of selected paths that stop
 within 3m of the goal. In path selection this is our primary metric of interest.
+
 – Navigation error (NE) measures the average distance of the shortest path
 from the last position in the selected path to the goal position.
+
 – Path length (PL) measures the average length of the selected path.
 
 **I/O: What are the inputs and output modalities? What existing tools will you use to convert device inputs (that are not a core part of your project) to a format readable by the model, and vice versa?**
+
+The input modalities for the model will be an instruction in natural language and and sequence of panaromic RGB images returned by the Matterport Simulator along the traversed path. The output of the model will an action that the model predicts at every state in the trajectory. The task is considered a succes if the agent reaches within 3m of the goal.  
+
 **Hardware, including any peripherals required, and reasoning for why that hardware was chosen for this project. (This is where you will request additional hardware and/or peripherals for your project!)**
+
+We will use the Matterport simulator for simulating the 3D environment for the model. For the first part of the project, we will not need any peripherals. But one stretch goal would be making a mobile base to physically navigate in a 3D environment. For that we might need multiple cameras, imple chassis, motor driver board, motors + wheels
+
 **Potential challenges, and how you might adjust the project to adapt to those challenges.**
+
+This project has a high dependence on being able to run and use the Matterport Simulator software smoothly. If we run into many roadblocks in this respect that hinder the progress of our project, then we will change the direction of the project from being a navigation task to any other task that uses both vision and language modalities. We would still be able to use our main idea of compressing a visiolinguistic based transformer model for that task.
+
 **Potential extensions to the project.**
+
+One potential extension of our project will be to first perform zero/few shot evaluation of the pre-trained VLN model on out-of-domain data like every different visual environments and then work on improving model generalization.
+
+Another stretch goal would be building an embodied agent that can actually navigate in a small environment using our model. For that we will have to get rid of the simulator and can come up with a proxy that can perform the same tasks as the simulator.
 
