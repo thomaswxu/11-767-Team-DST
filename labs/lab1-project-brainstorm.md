@@ -19,7 +19,7 @@ Write down 3-5 project ideas your group considered (a few sentences each). Depen
 2: Narrowing
 ----
 
-**Idea: AirBERT**  
+**Idea: Vision-and-language Navigation**  
 
 **1. How would this project leverage the expertise of each member of your group?**  
 Saloni and Dhruv have experience working with NLP and vision models. Tom has experience using vision and robotic navigation.  
@@ -32,7 +32,7 @@ Camera/image sequences, natural language instruction.
 (d) Other: RL techniques for navigation, learning robust joint representations with vision and language.
 
 **3. What potential road blocks or challenges do you foresee in this project? How might you adjust the project scope in case these aspects present unsurmountable challenges?**  
-Main challenge is compressing the model until it can be run on the 2GB Jetson Nano. We also want the model to be able to run in near real-time. If these are insurmountable, an option would be to use the 4GB Jetson instead.
+Main challenge is compressing the model until it can be run on the 2GB Jetson Nano. We also want the model to be able to run in near real-time. If these are insurmountable, an option would be to use the 4GB Jetson instead. Another chalenge can be working with the Matterport 3D simulator. From online blogs and forums, looks like setting up the simulator on local machine and running it smoothly can be a task.
 
 **4. How could you potentially extend the scope of this project if you had e.g. one more month?**  
 On-device active learning, improving model generalization to out-of-domain data, adding more complex hardware (mobile base).  
@@ -60,7 +60,9 @@ Could try using adversarial training on the small model to test robustness.
 Choose one of the ideas you've considered, and outline a project proposal for that idea. This outline will be shared with other groups next class (Tuesday) to get feedback.
 
 Your outline should include:
-- Motivation
+**Motivation**
+To enable robots to smoothly navigate through realistic 3D visual environemnts using natural language has been a long-standing challenge. In vision-and-language navigation (VLN) tasks an embodied agent should first interpret the instructions and then determine if the visual inputs along a path matches the descriptions provided in the instructions. Given the extremely diverse nature of image and language inputs, the generalization of VLN agents to unseen environments remains challenging. There have been recent works in developing large visiolinguistic transformer-based models that are pretrained on large image-text pairs from the web. They show that pretraining helps in generalization and fine-tuning on embodied path-instruction data significantly improves performance on the downstream VLN task. One such pretrained model released in 2021 is AirBert which is trained on millions of VLN path-instruction (PI) pairs. They use Bnb (a large scacle VLN dataset created from AirBnb data) for pretraining and show that the AirBert model outperforms the state-of-the-art for for Room-to-Room (R2R) navigation and Remote Referring Expression (REVERIE) benchmarks.
+For our project we propose to use this huge model for a VLN task.Our main focus will be on applying different compression/distillation techniques to AirBert, in order to deploy it on a 2gb Jetson Nano.
 - Hypotheses (key ideas)
 - How you will test those hypotheses: datasets, baselines, ablations, and other experiments or analyses.
 - I/O: What are the inputs and output modalities? What existing tools will you use to convert device inputs (that are not a core part of your project) to a format readable by the model, and vice versa?
