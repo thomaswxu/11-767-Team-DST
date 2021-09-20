@@ -32,14 +32,15 @@ Camera/image sequences, natural language instruction.
 (d) Other: RL techniques for navigation, learning robust joint representations with vision and language.
 
 **3. What potential road blocks or challenges do you foresee in this project? How might you adjust the project scope in case these aspects present unsurmountable challenges?**  
-Main challenge is compressing the model until it can be run on the 2GB Jetson Nano. We also want the model to be able to run in near real-time. If these are insurmountable, an option would be to use the 4GB Jetson instead. Another chalenge can be working with the Matterport 3D simulator. From online blogs and forums, looks like setting up the simulator on local machine and running it smoothly can be a task.
+Main challenge is compressing the model until it can be run on the 2GB Jetson Nano. We also want the model to be able to run in near real-time. If these are insurmountable, an option would be to use the 4GB Jetson instead. Another challenge can be working with the Matterport 3D simulator. From online blogs and forums, looks like setting up the simulator on local machine and running it smoothly can be a task.
 
 **4. How could you potentially extend the scope of this project if you had e.g. one more month?**  
 On-device active learning, improving model generalization to out-of-domain data, adding more complex hardware (mobile base).  
 
+.  
+.  
+,  
 
-  
-  
 **Idea: Automatic Speech Recognition (ASR) in noisy environment.**  
 **1. How would this project leverage the expertise of each member of your group?**  
 Saloni and Dhruv have experience working with NLP and vision models. Tom has experience using vision and robotic navigation.  
@@ -59,15 +60,16 @@ Could try using adversarial training on the small model to test robustness.
 ----
 Choose one of the ideas you've considered, and outline a project proposal for that idea. This outline will be shared with other groups next class (Tuesday) to get feedback.
 
+**Chosen Idea**: AirBERT
 
 **Motivation**
 
 To enable robots to smoothly navigate through realistic 3D visual environemnts using natural language has been a long-standing challenge. In vision-and-language navigation (VLN) tasks an embodied agent should first interpret the instructions and then determine if the visual inputs along a path matches the descriptions provided in the instructions. Given the extremely diverse nature of image and language inputs, the generalization of VLN agents to unseen environments remains challenging. There have been recent works in developing large visiolinguistic transformer-based models that are pretrained on large image-text pairs from the web. They show that pretraining helps in generalization and fine-tuning on embodied path-instruction data significantly improves performance on the downstream VLN task. One such pretrained model released in 2021 is AirBert which is trained on millions of VLN path-instruction (PI) pairs. They use Bnb (a large scacle VLN dataset created from AirBnb data) for pretraining and show that the AirBert model outperforms the state-of-the-art for for Room-to-Room (R2R) navigation and Remote Referring Expression (REVERIE) benchmarks.
-For our project we propose to use this huge transformer-based model for a VLN task. Our main focus will be on applying different compression/distillation techniques to AirBert, in order to deploy it on a 2gb Jetson Nano.
+For our project we propose to use this huge transformer-based model for a VLN task. Our main focus will be on applying different compression/distillation techniques to AirBert, in order to deploy it on a 2GB Jetson Nano.
 
 **Hypotheses (key ideas)**
 
-The current size of the pre-trained AirBert transormer model is 2.3 gb. Fine-tuning this model on a downstream task might result in additional layers and paramters getting added to the model, therefore increasing the model size further. To run the model on the device, we will also have to leave room for loading/reading input from the Matterport Simulator and language intructions. Given the jetson nano size is only 2gb, it appears a reduction of around 60% in the model size is required roughly to be able to run it smoothly on the device. We will start by using the knowledge distillation technique described in the DistillBert paper as our first experiment and then adapting more advanced methods.
+The current size of the pre-trained AirBert transormer model is 2.3 GB. Fine-tuning this model on a downstream task might result in additional layers and paramters getting added to the model, therefore increasing the model size further. To run the model on the device, we will also have to leave room for loading/reading input from the Matterport Simulator and language intructions. Given the jetson nano size is only 2GB, it appears a reduction of around 60% in the model size is required roughly to be able to run it smoothly on the device. We will start by using the knowledge distillation technique described in the DistillBert paper as our first experiment and then adapting more advanced methods.
 
 **How you will test those hypotheses: datasets, baselines, ablations, and other experiments or analyses.**
 
@@ -83,11 +85,11 @@ from the last position in the selected path to the goal position.
 
 **I/O: What are the inputs and output modalities? What existing tools will you use to convert device inputs (that are not a core part of your project) to a format readable by the model, and vice versa?**
 
-The input modalities for the model will be an instruction in natural language and and sequence of panaromic RGB images returned by the Matterport Simulator along the traversed path. The output of the model will an action that the model predicts at every state in the trajectory. The task is considered a succes if the agent reaches within 3m of the goal.  
+The input modalities for the model will be an instruction in natural language and and sequence of panaromic RGB images returned by the Matterport Simulator along the traversed path. The output of the model will be an action that the model predicts at every state in the trajectory. The task is considered a succes if the agent reaches within 3m of the goal.  
 
 **Hardware, including any peripherals required, and reasoning for why that hardware was chosen for this project. (This is where you will request additional hardware and/or peripherals for your project!)**
 
-We will use the Matterport simulator for simulating the 3D environment for the model. For the first part of the project, we will not need any peripherals. But one stretch goal would be making a mobile base to physically navigate in a 3D environment. For that we might need multiple cameras, imple chassis, motor driver board, motors + wheels
+We will use the Matterport simulator for simulating the 3D environment for the model. For the first part of the project, we will not need any peripherals. But one stretch goal would be making a mobile base to physically navigate in a 3D environment. For that we might need multiple cameras, simple chassis (laser cut or 3D printed), motor driver board, motors + wheels.
 
 **Potential challenges, and how you might adjust the project to adapt to those challenges.**
 
