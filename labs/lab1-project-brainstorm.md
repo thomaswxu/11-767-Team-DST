@@ -59,12 +59,17 @@ Could try using adversarial training on the small model to test robustness.
 ----
 Choose one of the ideas you've considered, and outline a project proposal for that idea. This outline will be shared with other groups next class (Tuesday) to get feedback.
 
-Your outline should include:
+
 **Motivation**
+
 To enable robots to smoothly navigate through realistic 3D visual environemnts using natural language has been a long-standing challenge. In vision-and-language navigation (VLN) tasks an embodied agent should first interpret the instructions and then determine if the visual inputs along a path matches the descriptions provided in the instructions. Given the extremely diverse nature of image and language inputs, the generalization of VLN agents to unseen environments remains challenging. There have been recent works in developing large visiolinguistic transformer-based models that are pretrained on large image-text pairs from the web. They show that pretraining helps in generalization and fine-tuning on embodied path-instruction data significantly improves performance on the downstream VLN task. One such pretrained model released in 2021 is AirBert which is trained on millions of VLN path-instruction (PI) pairs. They use Bnb (a large scacle VLN dataset created from AirBnb data) for pretraining and show that the AirBert model outperforms the state-of-the-art for for Room-to-Room (R2R) navigation and Remote Referring Expression (REVERIE) benchmarks.
 For our project we propose to use this huge model for a VLN task.Our main focus will be on applying different compression/distillation techniques to AirBert, in order to deploy it on a 2gb Jetson Nano.
-- Hypotheses (key ideas)
-- How you will test those hypotheses: datasets, baselines, ablations, and other experiments or analyses.
+
+**Hypotheses (key ideas)**
+
+The current size of the pre-trained AirBert transormer model is 2.3 gb. Fine-tuning this model on a downstream task might result in additional layers and paramters getting added to the model, therefore increasing the model size further. To run the model on the device, we will also have to leave room for loading/reading input from the Matterport Simulator and language intructions. Given the jetson nano size is only 2gb, it appears a reduction of 60% in the model size is required approximately to be able to run it smoothly on the device. We will start by using the knowledge distillation technique described in the DistillBert paper as our first experiment and then adapting more advanced methods.
+
+**How you will test those hypotheses: datasets, baselines, ablations, and other experiments or analyses.**
 - I/O: What are the inputs and output modalities? What existing tools will you use to convert device inputs (that are not a core part of your project) to a format readable by the model, and vice versa?
 - Hardware, including any peripherals required, and reasoning for why that hardware was chosen for this project. (This is where you will request additional hardware and/or peripherals for your project!)
 - Potential challenges, and how you might adjust the project to adapt to those challenges.
