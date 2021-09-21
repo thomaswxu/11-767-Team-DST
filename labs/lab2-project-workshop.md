@@ -26,12 +26,34 @@ Group members present in lab today:
 
 1: Review 1
 ----
-Name of team being reviewed: 
-1. How does your team's background align with that of the proposed project (e.g. if the proposed project is in CV but your team's backgorund is mostly NLP, state that here. Similarly, if your team also has someone who specializes in the area of the proposed project, state that here.)
+
+Name of team being reviewed: Macrosoft
+1. How does your team's background align with that of the proposed project (e.g. if the proposed project is in CV but your team's backgorund is mostly NLP, state that here. Similarly, if your team also has someone who specializes in the area of the proposed project, state that here.) 
+
+The project involves mainly two modalities of vision and speech. All members of our team have some background in those.
+
 2. Are the motivation, hypotheses, and plan to test those hypotheses clear? If not, where could the team provide more clarification or explanation? 
-3. Does the project seem properly scoped for a semester-long project? Why or why not? How might the team be able to adjust the project to be appropriately scoped?
-4. Are there any potential ethical concerns that arise from the proposed project? 
-5. Any additional comments or concerns? Any related work you know of that might be relevant and/or helpful?
+
+This is an interesting and a novel idea to automate the process of monitoring student participation in a classroom. Here are some points that can be explained further:
+- The authors have scoped down the task to a three-person semi-circular classroom setting. I feel this is an oversimplification of the problem as in the real word a classroom is comprised of a lot more people and can have very diverse seating arrangements. A model trained on this setting will not capture the real world distribution and its effectiveness can never really be measured.
+
+- Since this is a new problem proposed by the team, there are no existing datasets available. The team proposes to create thier own dataset. Can they elaborate how they plan to capture all the real world challenges and difficult cases that can arise in such a classroom setting and ensure that the data is diverse enough?
+
+- The team mentions that they will use a face embedding model with a voice embedding model. If the the goal is to create a database of student recordings and use face embeddings as identifiers, what do we need a voice embedding model for? If I understand correctly, only a face + action recognition model is enough to first localise the speaker and then identify the person to put the recording in the database corresponding to that person. 
+
+-The team mentions that they will use an array of three microphones. A single microphone can also work. Is there a reason why three microphones are needed?
+
+
+5. Does the project seem properly scoped for a semester-long project? Why or why not? How might the team be able to adjust the project to be appropriately scoped?
+
+- I think the team can extend the scope of this project beyond a three-person semi-circular classroom setting to make the model more scalable and capture more diversity. This will make learning for the model more challenging and the effectiveness of the model can be better evalauted.
+
+7. Are there any potential ethical concerns that arise from the proposed project? 
+
+- None that we can think of.
+
+9. Any additional comments or concerns? Any related work you know of that might be relevant and/or helpful?
+
 
 2: Review 2
 ----
