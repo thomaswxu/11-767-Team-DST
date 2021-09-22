@@ -99,8 +99,6 @@ Read the feedback that the other groups gave on your proposal, and discuss as a 
 1. `Compressing Visual-linguistic Model via Knowledge Distillation (https://arxiv.org/abs/2104.02096)` - Related work that was suggested by one team, which can be useful when experimenting with distillation on VLN models.
 2. `It will be better to provide more details on the potential challenges of using Matterport Simulator and corresponding solutions. For example, what if it requires additional ram or GPU resources.` Considerations for available simulators, and any GPU/CPU compute resources that might be required for experiments should be included in the proposal.  
 3. `Another VLN task to consider: https://arxiv.org/abs/1912.01734 ` Additional dataset we can use for benchmarking the models
-4. 
-5. ...
 
 You may also use this time to get additional feedback from instructors and/or start working on your proposal.
 
