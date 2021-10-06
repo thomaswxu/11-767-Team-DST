@@ -79,9 +79,11 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
    ![visbert](plot_visbert.png)
 
    Episodic Transformers (human+syn) on Apple M1
+
    ![Episodic Transformers (human+syn) on Apple M1](plot_et_hs_m1.png)
 
    Episodic Transformers (human only) on Apple M1
+   
    ![Episodic Transformers (human only) on Apple M1](plot_et_h_m1.png)
    
 4. Any difficulties you encountered here? Why or why not?
