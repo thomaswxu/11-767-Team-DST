@@ -69,6 +69,15 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
    plt.savefig(plot_fname)
    # or plot.show() if you e.g. copy results to laptop
    ```
+   
+   LXMERT
+   
+   ![LXMERT](plot_lxm.png)
+   
+   VisualBert
+   
+   ![visbert](plot_visbert.png)
+   
 4. Any difficulties you encountered here? Why or why not?
 
 4: Energy use
