@@ -23,6 +23,11 @@ Group members present in lab today:
    num_params = sum([np.prod(p.size()) for p in model.parameters()])
    ```
    Report your results in a table.
+   
+   | Model | Parameter Count|
+   | ---   | ---            |
+   | LXMERT| 213930297      |
+   
 2. Does this number account for any parameter sharing that might be part of the model you're benchmarking? 
 3. Any difficulties you encountered here? Why or why not?
 
@@ -72,6 +77,14 @@ Group members present in lab today:
     ```
     Here is a link to the [`powertop` users guide](https://01.org/sites/default/files/page/powertop_users_guide_201412.pdf) [PDF].
 2. Any difficulties you encountered here? Why or why not?
+
+> Powertop is not giving any consumption output. 
+> After installing powertop and running the example command on Jetson Nano 2GB, it was observed that the csv files did not have any values for power consumption.
+> Further searching on the issue led to:
+>  - https://forums.developer.nvidia.com/t/measure-power-consumption-on-jetson-tk1/37844
+>  - https://askubuntu.com/questions/812563/what-are-ms-s-units-in-powertop-and-how-can-i-get-power-consumption-in-watts
+>  - The powertop user guide also mentioned: The system  has  to  be  running on  battery  power  only.   Not  connected  to  the  wall  power.
+>  - On commenting about this issue on Slack #jetson, discovered that Jetson Nano does not have the appropriate controller.
 
 5: Discussion
 ----
