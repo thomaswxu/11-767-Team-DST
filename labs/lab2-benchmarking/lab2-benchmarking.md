@@ -8,7 +8,7 @@ Include any code you write to perform this benchmarking in your Canvas submissio
 
 Group name:
 ---
-Group members present in lab today:
+Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
 
 1: Models
 ----
@@ -28,6 +28,8 @@ Group members present in lab today:
    | ---   | ---            |
    | LXMERT| 213930297      |
    | VisualBert| 113856825 |
+   | Episodic Transformers (human+syn)| 21764052|
+   | Episodic Transformers (human only)| 21690324|
    
 2. Does this number account for any parameter sharing that might be part of the model you're benchmarking? 
 3. Any difficulties you encountered here? Why or why not?
@@ -46,6 +48,13 @@ Group members present in lab today:
     Best practice is to not include the first pass in timing, since it may include data loading, caching, etc.* and to report the mean and standard deviation of *k* repetitions. For the purposes of this lab, *k*=10 is reasonable. (If standard deviation is high, you may want to run more repetitions. If it is low, you might be able to get away with fewer repetitions.)
     
     For more information on `timeit` and measuring elapsed time in Python, you may want to refer to [this Stack Overflow post](https://stackoverflow.com/questions/7370801/how-to-measure-elapsed-time-in-python).
+
+    | Model | Average Latency for Batch size 1(in secs)|
+   | ---   | ---            |
+   | LXMERT|       |
+   | VisualBert|  |
+   | Episodic Transformers (human+syn)| 0.0324|
+   | Episodic Transformers (human only)| 0.02994|
 2. Repeat this, varying one of: batch size, input size, other. Plot the results (sorry this isn't a notebook):
    ```
    import matplotlib.pyplot as plt
