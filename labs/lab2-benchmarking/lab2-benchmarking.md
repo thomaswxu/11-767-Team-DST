@@ -27,6 +27,7 @@ Group members present in lab today:
    | Model | Parameter Count|
    | ---   | ---            |
    | LXMERT| 213930297      |
+   | VisualBert| 113856825 |
    
 2. Does this number account for any parameter sharing that might be part of the model you're benchmarking? 
 3. Any difficulties you encountered here? Why or why not?
