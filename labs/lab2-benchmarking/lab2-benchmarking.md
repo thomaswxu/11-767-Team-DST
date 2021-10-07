@@ -21,6 +21,12 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
 >    2. E.T trained on human and synthetic data
 2. Why did you choose these models?
 >    - The first two models are variants of an approach proposed by Pashevich, Alexander et al. in thier [paper](https://arxiv.org/abs/2105.06453) very recently. Episodic Transformer (E.T.) is a novel multimodal transformer that encodes language inputs and the full episode history of visual observations and actions. We chose this as this achieved the current SOTA on a very challenging ALFRED benchmark.
+
+> We also benchmarked two multimodal (image+text) transformer models available in the Huggingface Transformers package: LXMERT and VisualBERT
+> LXMERT consists of three encoders: an object relationship encoder, a language encoder, and a cross-modality encoder.
+> VisualBERT is another visually-grounded language model, capable of performing tasks such as captioning, question answering.
+
+
 3. For each model, you will measure parameter count, inference latency, and energy use. For latency and energy, you will also be varying a parameter such as input size or batch size. What are your hypotheses for how the models will compare according to these metrics? Do you think latency will track with energy use, and parameter count? Explain.
 > For all transformer based models that we benchmark, the inference latency for one forward should scale quadratically with the input size and should scale linearly with the batch size.
 > We should observe a positive correlation between latency and energy consumption. More parameters would also require running more floating point operations resulting in more energy consumption by the hardware.
