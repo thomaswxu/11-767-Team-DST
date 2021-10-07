@@ -38,6 +38,8 @@ We benchmarked a couple of pre-trained vision-language models and vision-languag
    | VisualBert| 113856825 | Jetson |
    | Episodic Transformers (human+syn)| 21764052| Apple M1 |
    | Episodic Transformers (human only)| 21690324| Apple M1 |
+   | CMA_PM_DA_Aug | 36856021 |  Ambd|
+   | Seq2Seq_DA | 33196558 | ambd |
    
 2. Does this number account for any parameter sharing that might be part of the model you're benchmarking? 
 3. Any difficulties you encountered here? Why or why not?
