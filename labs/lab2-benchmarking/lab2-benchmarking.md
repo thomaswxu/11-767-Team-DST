@@ -22,7 +22,8 @@ We benchmarked a couple of pre-trained vision-language models and vision-languag
 2. Why did you choose these models?
     - The first two models are variants of an approach proposed by Pashevich, Alexander et al. in thier [paper](https://arxiv.org/abs/2105.06453) very recently. Episodic Transformer (E.T.) is a novel multimodal transformer that encodes language inputs and the full episode history of visual observations and actions. We chose this as this achieved the current SOTA on a very challenging ALFRED benchmark.
 3. For each model, you will measure parameter count, inference latency, and energy use. For latency and energy, you will also be varying a parameter such as input size or batch size. What are your hypotheses for how the models will compare according to these metrics? Do you think latency will track with energy use, and parameter count? Explain.
-    - For all transformer based models that we benchmark, the inference latency for one forward should scale quadratically in the input size as is the case with transformers and should scale linearly with the batch size.
+> For all transformer based models that we benchmark, the inference latency for one forward should scale quadratically with the input size and should scale linearly with the batch size.
+> We should observe a positive correlation between latency and energy consumption. More parameters would also require running more floating point operations resulting in more energy consumption by the hardware.
 
 2: Parameter count
 ----
@@ -30,6 +31,11 @@ We benchmarked a couple of pre-trained vision-language models and vision-languag
    ```
    num_params = sum([np.prod(p.size()) for p in model.parameters()])
    ```
+   [To avoid double counting shared parameters](https://stackoverflow.com/a/62764464/7328910)
+  ```
+  sum(dict((p.data_ptr(), p.numel()) for p in model.parameters()).values())
+  ```
+  
    Report your results in a table.
    
    | Model | Parameter Count| Device |
@@ -38,10 +44,12 @@ We benchmarked a couple of pre-trained vision-language models and vision-languag
    | VisualBert| 113856825 | Jetson |
    | Episodic Transformers (human+syn)| 21764052| Apple M1 |
    | Episodic Transformers (human only)| 21690324| Apple M1 |
-   | CMA_PM_DA_Aug | 36856021 |  Ambd|
-   | Seq2Seq_DA | 33196558 | ambd |
+   | CMA_PM_DA_Aug | 36856021 |  Ryzen 7|
+   | Seq2Seq_DA | 33196558 | Ryzen 7 |
    
 2. Does this number account for any parameter sharing that might be part of the model you're benchmarking? 
+> Yes, we use a modified script to avoid double-counting paramters.
+
 3. Any difficulties you encountered here? Why or why not?
 - There were mainly two blockers that prevented the E.T. models from running on jetson.
     1. The Alfred dataset that contains the trajectories (with expert actions, grounded language instructions and images) is huge and in a very complex format. Even when evaluating on a single trajectory, the code references a big mdb format file for metadata. Doing "ls -lh" from my terminal, shows the size of this file to be 1 TB which is very strange as the maximum storage size on my machine is 500 GB. Due to this, I'm unable to scp this file on the device.
@@ -66,8 +74,8 @@ We benchmarked a couple of pre-trained vision-language models and vision-languag
 
     | Model | Average Latency for Batch size 1(in secs)|
    | ---   | ---            |
-   | LXMERT|       |
-   | VisualBert|  |
+   | LXMERT|    1.1935889963715454   |
+   | VisualBert| 0.6527042077039369 |
    | Episodic Transformers (human+syn)| 0.0324|
    | Episodic Transformers (human only)| 0.02994|
 2. Repeat this, varying one of: batch size, input size, other. Plot the results (sorry this isn't a notebook):
