@@ -20,7 +20,7 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
 >    1. E.T trained on human data only
 >    2. E.T trained on human and synthetic data
 
-> We also benchmarked two multimodal (image+text) transformer models available in the Huggingface Transformers package: LXMERT and VisualBERT
+> We also benchmarked three multimodal (image+text) transformer models available in the Huggingface Transformers package: LXMERT, VisualBERT and CLIP.
 2. Why did you choose these models?
 >    - The first two models are variants of an approach proposed by Pashevich, Alexander et al. in thier [paper](https://arxiv.org/abs/2105.06453) very recently. Episodic Transformer (E.T.) is a novel multimodal transformer that encodes language inputs and the full episode history of visual observations and actions. We chose this as this achieved the current SOTA on a very challenging ALFRED benchmark.
 
