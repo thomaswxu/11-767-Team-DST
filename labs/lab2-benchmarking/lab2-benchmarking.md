@@ -19,14 +19,18 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
 > - We first benchmark two pre-trained checkpoints from ["Episodic Transformers" repo](https://github.com/alexpashevich/E.T./tree/master) for vision-and-language navigation that reproduces results on [ALFRED](https://arxiv.org/abs/1912.01734) benchmark. We tested two variants of it:
 >    1. E.T trained on human data only
 >    2. E.T trained on human and synthetic data
-
 > We also benchmarked three multimodal (image+text) transformer models available in the Huggingface Transformers package: LXMERT, VisualBERT and CLIP.
+>
+> We also benchmarked a pretrained version of [CLIP](https://huggingface.co/transformers/model_doc/clip.html), which is used for natural language for image label prediction.
+
 2. Why did you choose these models?
 >    - The first two models are variants of an approach proposed by Pashevich, Alexander et al. in thier [paper](https://arxiv.org/abs/2105.06453) very recently. Episodic Transformer (E.T.) is a novel multimodal transformer that encodes language inputs and the full episode history of visual observations and actions. We chose this as this achieved the current SOTA on a very challenging ALFRED benchmark.
 
 > - LXMERT consists of three encoders: an object relationship encoder, a language encoder, and a cross-modality encoder.
  VisualBERT is another visually-grounded language model, capable of performing tasks such as captioning, question answering.
 > Since VLN task is also a multimodal (image+text) task, these state-of-the-art models are of great relevance.
+
+> - We benchmarked CLIP because it provided contrast by being a model that is still used with Natural Language Processing, but in a different application area (image labelling) vs our project (navigation).
 
 
 3. For each model, you will measure parameter count, inference latency, and energy use. For latency and energy, you will also be varying a parameter such as input size or batch size. What are your hypotheses for how the models will compare according to these metrics? Do you think latency will track with energy use, and parameter count? Explain.
@@ -50,6 +54,7 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
    | ---   | ---            | --- |
    | LXMERT| 213930297      | Jetson |
    | VisualBert| 113856825 | Jetson |
+   | CLIP | 151277313 | Jetson |
    | Episodic Transformers (human+syn)| 21764052| Apple M1 |
    | Episodic Transformers (human only)| 21690324| Apple M1 |
    | CMA_PM_DA_Aug | 36856021 |  Ryzen 7|
@@ -86,6 +91,8 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
    | VisualBert| 0.6527042077039369 |
    | Episodic Transformers (human+syn)| 0.0324|
    | Episodic Transformers (human only)| 0.02994|
+   | CLIP | 1.2353 |
+
 2. Repeat this, varying one of: batch size, input size, other. Plot the results (sorry this isn't a notebook):
    ```
    import matplotlib.pyplot as plt
@@ -117,8 +124,12 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
 
    ![Episodic Transformers (human only) on Apple M1](plot_et_h_m1.png)
    
+   CLIP on Jetson Nano
+   ![CLIP on Jetson Nano](clip/plot.png)
 4. Any difficulties you encountered here? Why or why not?
     - The evaluation code in E.T. is designed to take only 1 trajectory (batch size 1) at inference as it is sequentially writing the next actions for an agent step. To do an ablation for different batch size, used a hack where I repeated the input tensors to the transformer along the batch size dimension.
+
+    - There were many difficulties running the VLN-CE models. The code from the repository had many errors with syntax errors within the given code that were very difficult to debug given the size of the codebase.
 
 4: Energy use
 ----
