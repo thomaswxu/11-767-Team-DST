@@ -126,6 +126,7 @@ We benchmarked a couple of pre-trained vision-language models and vision-languag
 >  - https://askubuntu.com/questions/812563/what-are-ms-s-units-in-powertop-and-how-can-i-get-power-consumption-in-watts
 >  - The powertop user guide also mentioned: The system  has  to  be  running on  battery  power  only.   Not  connected  to  the  wall  power.
 >  - On commenting about this issue on Slack #jetson, discovered that Jetson Nano does not have the appropriate controller.
+> - For models that were benchmarked on Apple M1, an energy consumption analysis was not possible as powertop requires Java runtime which is not present on the mac.
 
 5: Discussion
 ----
