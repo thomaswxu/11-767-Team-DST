@@ -24,12 +24,12 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
    ```
    Report your results in a table.
    
-   | Model | Parameter Count|
-   | ---   | ---            |
-   | LXMERT| 213930297      |
-   | VisualBert| 113856825 |
-   | Episodic Transformers (human+syn)| 21764052|
-   | Episodic Transformers (human only)| 21690324|
+   | Model | Parameter Count| Device |
+   | ---   | ---            | --- |
+   | LXMERT| 213930297      | Jetson |
+   | VisualBert| 113856825 | Jetson |
+   | Episodic Transformers (human+syn)| 21764052| Apple M1 |
+   | Episodic Transformers (human only)| 21690324| Apple M1 |
    
 2. Does this number account for any parameter sharing that might be part of the model you're benchmarking? 
 3. Any difficulties you encountered here? Why or why not?
@@ -83,7 +83,7 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
    ![Episodic Transformers (human+syn) on Apple M1](plot_et_hs_m1.png)
 
    Episodic Transformers (human only) on Apple M1
-   
+
    ![Episodic Transformers (human only) on Apple M1](plot_et_h_m1.png)
    
 4. Any difficulties you encountered here? Why or why not?
