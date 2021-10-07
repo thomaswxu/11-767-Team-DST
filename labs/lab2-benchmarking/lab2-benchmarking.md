@@ -14,13 +14,13 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
 ----
 1. Which models and/or model variants will your group be benchmarking? Please be specific.
 
-We benchmarked a couple of pre-trained vision-language models and vision-language-navigation models. They are as follows:
-
-- We first benchmark two pre-trained checkpoints from ["Episodic Transformers" repo](https://github.com/alexpashevich/E.T./tree/master) for vision-and-language navigation that reproduces results on [ALFRED](https://arxiv.org/abs/1912.01734) benchmark. We tested two variants of it:
-    1. E.T trained on human data only
-    2. E.T trained on human and synthetic data
+>We benchmarked a couple of pre-trained vision-language models and vision-language-navigation models. They are as follows:
+>
+> - We first benchmark two pre-trained checkpoints from ["Episodic Transformers" repo](https://github.com/alexpashevich/E.T./tree/master) for vision-and-language navigation that reproduces results on [ALFRED](https://arxiv.org/abs/1912.01734) benchmark. We tested two variants of it:
+>    1. E.T trained on human data only
+>    2. E.T trained on human and synthetic data
 2. Why did you choose these models?
-    - The first two models are variants of an approach proposed by Pashevich, Alexander et al. in thier [paper](https://arxiv.org/abs/2105.06453) very recently. Episodic Transformer (E.T.) is a novel multimodal transformer that encodes language inputs and the full episode history of visual observations and actions. We chose this as this achieved the current SOTA on a very challenging ALFRED benchmark.
+>    - The first two models are variants of an approach proposed by Pashevich, Alexander et al. in thier [paper](https://arxiv.org/abs/2105.06453) very recently. Episodic Transformer (E.T.) is a novel multimodal transformer that encodes language inputs and the full episode history of visual observations and actions. We chose this as this achieved the current SOTA on a very challenging ALFRED benchmark.
 3. For each model, you will measure parameter count, inference latency, and energy use. For latency and energy, you will also be varying a parameter such as input size or batch size. What are your hypotheses for how the models will compare according to these metrics? Do you think latency will track with energy use, and parameter count? Explain.
 > For all transformer based models that we benchmark, the inference latency for one forward should scale quadratically with the input size and should scale linearly with the batch size.
 > We should observe a positive correlation between latency and energy consumption. More parameters would also require running more floating point operations resulting in more energy consumption by the hardware.
