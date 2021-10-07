@@ -148,6 +148,7 @@ LXMERT consists of three encoders: an object relationship encoder, a language en
 ----
 1. Analyze the results. Do they support your hypotheses? Why or why not? Did you notice any strange or unexpected behavior? What might be the underlying reasons for that behavior?
 > We observe that our hypotheses is true to some extent. All the benchmarked models are transformer based and we do see a linear relationship between latency and batch size. For the clip model, on increasing the input length of the text sequence, there is an almost quadratic increase in latency. 
+> We could not benchmark energy consumption, due to package and hardware constraints, as mentioned in the previous section
 
 
 5: Extra
