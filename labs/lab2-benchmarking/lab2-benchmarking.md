@@ -141,6 +141,8 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
 5: Discussion
 ----
 1. Analyze the results. Do they support your hypotheses? Why or why not? Did you notice any strange or unexpected behavior? What might be the underlying reasons for that behavior?
+> We observe that our hypotheses is true to some extent. All the benchmarked models are transformer based and we do see a linear relationship between latency and batch size. For the clip model, on increasing the input length of the text sequence, there is an almost quadratic increase in latency. 
+
 
 5: Extra
 ----
