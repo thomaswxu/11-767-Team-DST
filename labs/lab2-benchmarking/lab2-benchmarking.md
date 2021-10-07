@@ -14,7 +14,7 @@ Group members present in lab today: Saloni Mittal, Thomas Xu, Dhruv Naik
 ----
 1. Which models and/or model variants will your group be benchmarking? Please be specific.
 
-We benchmarked a couple pre-trained vision-language models and the vision-language-navigation models. They are as follows:
+We benchmarked a couple of pre-trained vision-language models and vision-language-navigation models. They are as follows:
 
 - We first benchmark two pre-trained checkpoints from ["Episodic Transformers" repo](https://github.com/alexpashevich/E.T./tree/master) for vision-and-language navigation that reproduces results on [ALFRED](https://arxiv.org/abs/1912.01734) benchmark. We tested two variants of it:
     1. E.T trained on human data only
@@ -41,6 +41,11 @@ We benchmarked a couple pre-trained vision-language models and the vision-langua
    
 2. Does this number account for any parameter sharing that might be part of the model you're benchmarking? 
 3. Any difficulties you encountered here? Why or why not?
+- There were mainly two blockers that prevented the E.T. models from running on jetson.
+    - The Alfred dataset that contains the trajectories (with expert actions, grounded language instructions and images) is huge and in a very complex format. Even when evaluating on a single trajectory, the code references a big mdb format file for metadata. Doing "ls -lh" from my terminal, shows the size of this file to be 1 TB which is very strange as the maximum storage size on my machine is 500 GB. Due to this, I'm unable to scp this file on the device.
+    -Other problem that remains unresolved is the x_display error. The E.T code requires to explicitly pass the x server id of the device as a command line argument. Somehow both passing this id and turning off x server are not resolving the error, "AssertionError: Invalid DISPLAY :0 - cannot find X server with xdpyinfo".
+
+
 
 3: Latency
 ----
