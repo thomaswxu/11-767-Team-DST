@@ -6,15 +6,31 @@ Ideally, the models you benchmark will be the same as last class, but if you fin
 
 Include any code you write to perform this benchmarking in your Canvas submission (either as a link to a folder on github, in a shared drive, zip, etc).
 
-Group name:
+Group name: DST
 ---
-Group members present in lab today:
+Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
 
 1: Models
 ----
 1. Which models and/or model variants will your group be studying in this lab? What is the original bit width of the models, and what precision will you be quantizing to? What parts of the model will be quantized (e.g. parameters, activations, ...)? Please be specific.
+> - E.T. (human data)
+> - E.T. (human + synthetic data)
+> - LXMERT
+> - VisualBERT
+> - CLIP
+
 2. Why did you choose these models?
+>    - The first two models are variants of an approach proposed by Pashevich, Alexander et al. in their [paper](https://arxiv.org/abs/2105.06453) very recently. Episodic Transformer (E.T.) is a novel multimodal transformer that encodes language inputs and the full episode history of visual observations and actions. We chose this as this achieved the current SOTA on a very challenging ALFRED benchmark.
+
+> - LXMERT consists of three encoders: an object relationship encoder, a language encoder, and a cross-modality encoder.
+ VisualBERT is another visually-grounded language model, capable of performing tasks such as captioning, question answering.
+> Since VLN task is also a multimodal (image+text) task, these state-of-the-art models are of great relevance.
+
+> - We benchmarked CLIP because it provided contrast by being a model that is still used with Natural Language Processing, but in a different application area (image labelling) vs our project (navigation).
+
 3. For each model, you will measure model size (in (mega,giga,...)bytes), and inference latency. You will also be varying a parameter such as input size or batch size. What are your hypotheses for how the quantized models will compare to non-quantized models according to these metrics? Do you think latency will track with model size? Explain.
+> For all transformer based models that we benchmark, the inference latency for one forward should scale quadratically with the input size and should scale linearly with the batch size.
+> We should observe a positive correlation between latency and energy consumption. More parameters would also require running more floating point operations resulting in more energy consumption by the hardware.
 
 2: Quantization in PyTorch
 ----
@@ -39,7 +55,16 @@ Group members present in lab today:
    ```
    du -h <path-to-serialized-model>
    ```
+   | Model | Size |
+   | ---   | ---  |
+   | LXMERT| ... |
+   | VisualBert| ... |
+   | CLIP | ... |
+   | Episodic Transformers (human+syn)| ... |
+   | Episodic Transformers (human only)| ... |
+
 2. Any difficulties you encountered here? Why or why not?
+> ...
 
 4: Latency
 ----
@@ -71,10 +96,12 @@ Group members present in lab today:
    # or plot.show() if you e.g. copy results to laptop
    ```
 4. Any difficulties you encountered here? Why or why not?
+> ...
 
 5: Discussion
 ----
 1. Analyze the results. Do they support your hypotheses? Why or why not? Did you notice any strange or unexpected behavior? What might be the underlying reasons for that behavior?
+> ...
 
 5: Extra
 ----
