@@ -55,13 +55,13 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    ```
    du -h <path-to-serialized-model>
    ```
-   | Model | Size |
-   | ---   | ---  |
-   | LXMERT| ... |
-   | VisualBert| ... |
-   | CLIP | ... |
-   | Episodic Transformers (human+syn)| ... |
-   | Episodic Transformers (human only)| ... |
+   | Model | Original Size (KB)| Quantized Size (KB) |
+   | ---   | ---  | --- |
+   | LXMERT| ... | ... |
+   | VisualBert| ... | ... |
+   | CLIP | 591068 | ... |
+   | Episodic Transformers (human+syn)| ... | ... |
+   | Episodic Transformers (human only)| ... | ... |
 
 2. Any difficulties you encountered here? Why or why not?
 > ...
