@@ -29,8 +29,8 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
 > - We benchmarked CLIP because it provided contrast by being a model that is still used with Natural Language Processing, but in a different application area (image labelling) vs our project (navigation).
 
 3. For each model, you will measure model size (in (mega,giga,...)bytes), and inference latency. You will also be varying a parameter such as input size or batch size. What are your hypotheses for how the quantized models will compare to non-quantized models according to these metrics? Do you think latency will track with model size? Explain.
-> For all transformer based models that we benchmark, the inference latency for one forward should scale quadratically with the input size and should scale linearly with the batch size.
-> We should observe a positive correlation between latency and energy consumption. More parameters would also require running more floating point operations resulting in more energy consumption by the hardware.
+> Quantization converts FP32 weights to INT8, which should translate to approximately a 4x reduction in size. 
+
 
 2: Quantization in PyTorch
 ----
@@ -97,13 +97,21 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    plt.savefig(plot_fname)
    # or plot.show() if you e.g. copy results to laptop
    ```
+   
+   ---
+   ### LXMERT
+   ![lxmert](plot_quant_lxm.png)
+   
+   ### VisualBert
+   ![lxmert](plot_quant_vis.png)
+   ---
 4. Any difficulties you encountered here? Why or why not?
-> ...
+> Had to reinstall torch on device with the above wheel, since the existing torch build did not have QNNPack compiled.
 
 5: Discussion
 ----
 1. Analyze the results. Do they support your hypotheses? Why or why not? Did you notice any strange or unexpected behavior? What might be the underlying reasons for that behavior?
-> ...
+> There is an approximate 4-5x reduction in model size after quantization, which supports the hypotheses. This is because of a straighforward reduction in parameter size from FP32 to INT8.
 
 5: Extra
 ----
