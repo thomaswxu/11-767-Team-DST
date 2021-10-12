@@ -56,10 +56,10 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    ```
    du -h <path-to-serialized-model>
    ```
-   | Model | Original Size (KB)| Quantized Size (KB) |
+   | Model | Original Size (MB)| Quantized Size (MB) |
    | ---   | ---  | --- |
-   | LXMERT| ... | ... |
-   | VisualBert| ... | ... |
+   | LXMERT| 816M | 273M |
+   | VisualBert| 434M | 178M |
    | CLIP | 591068 | ... |
    | Seq2Seq_PM | 538412 | ... |
    | Episodic Transformers (human+syn)| ... | ... |
