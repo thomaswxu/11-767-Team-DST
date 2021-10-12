@@ -58,10 +58,10 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    ```
    | Model | Original Size (MB)| Quantized Size (MB) |
    | ---   | ---  | --- |
-   | LXMERT| 816M | 273M |
-   | VisualBert| 434M | 178M |
-   | CLIP | 591068 | ... |
-   | Seq2Seq_PM | 538412 | 109404 |
+   | LXMERT| 816 | 273 |
+   | VisualBert| 434 | 178 |
+   | CLIP | 591 | 255 |
+   | Seq2Seq_PM | 538 | 109 |
    | Episodic Transformers (human+syn)| ... | ... |
    | Episodic Transformers (human only)| ... | ... |
 
