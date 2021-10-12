@@ -61,7 +61,7 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    | LXMERT| ... | ... |
    | VisualBert| ... | ... |
    | CLIP | 591068 | ... |
-   | Seq2Seq_PM | 538412 | ... |
+   | Seq2Seq_PM | 538412 | 109404 |
    | Episodic Transformers (human+syn)| ... | ... |
    | Episodic Transformers (human only)| ... | ... |
 
