@@ -13,6 +13,7 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
 1: Models
 ----
 1. Which models and/or model variants will your group be studying in this lab? What is the original bit width of the models, and what precision will you be quantizing to? What parts of the model will be quantized (e.g. parameters, activations, ...)? Please be specific.
+We  used dynamic quantization provided within Pytorch for each of the following models. All weights corresponding to the linear layers and the activations are quantized to 'int8'. The original bit width of the models is 'FP32'.
 > - LXMERT
 > - VisualBERT
 > - CLIP
@@ -30,7 +31,8 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
 >    - We benchmarked DistilBERT and ALBERT as they contain much less parameters than original BERT-large and perform almost competitively on may benchmarks. We want to see how thier quantized version fare against quantized original BERT model (especially in accuracy, experiment to be conducted soon.)
 
 3. For each model, you will measure model size (in (mega,giga,...)bytes), and inference latency. You will also be varying a parameter such as input size or batch size. What are your hypotheses for how the quantized models will compare to non-quantized models according to these metrics? Do you think latency will track with model size? Explain.
-> Quantization converts FP32 weights to INT8, which should translate to approximately a 4x reduction in size. 
+> Quantization converts FP32 weights to INT8, which should translate to approximately a 4x reduction in size.
+> The latency should decrease with the model size.
 
 
 2: Quantization in PyTorch
@@ -127,11 +129,13 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    ---
 4. Any difficulties you encountered here? Why or why not?
 > Had to reinstall torch on device with the above wheel, since the existing torch build did not have QNNPack compiled.
+> For ALBERT, when the input token count is 416 words, the computation time for one forward pass increases dramatically to ~650 seconds (Not shown in the plot for scale issues). This behavior is not see in its quantized version. Unable to explain this.
 
 5: Discussion
 ----
 1. Analyze the results. Do they support your hypotheses? Why or why not? Did you notice any strange or unexpected behavior? What might be the underlying reasons for that behavior?
 > There is an approximate 4-5x reduction in model size after quantization, which supports the hypotheses. This is because of a straighforward reduction in parameter size from FP32 to INT8.
+> Both the quantized models for ALBERT and DistilBERT behave unexpectedly when the input token length increases above 100 tokens. The latency of one forward pass in more than the respective unquantized models after 100 toekns. This is very difficult to explain, and since this happens consistenly for both the models around the same input length, we wonder if this happens for a reason.   
 
 5: Extra
 ----
