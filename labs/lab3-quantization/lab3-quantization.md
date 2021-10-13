@@ -88,8 +88,8 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
 
      | Model | Original Model latency (in seconds)| Quantized Model latency (in seconds) |
    | ---   | ---  | --- |
-   | LXMERT| 0 | 0 |
-   | VisualBert| 0 | 0 |
+   | LXMERT| 1.193 | 0.472 |
+   | VisualBert| 0.652 | 0.234 |
    | CLIP | 0 | 0 |
    | DistilBERT | 0.173 | 0.063 |
    | ViT| ... | ... |
