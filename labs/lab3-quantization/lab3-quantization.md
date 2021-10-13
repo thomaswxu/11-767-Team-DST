@@ -83,6 +83,18 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
     Best practice is to not include the first pass in timing, since it may include data loading, caching, etc.* and to report the mean and standard deviation of *k* repetitions. For the purposes of this lab, *k*=10 is reasonable. (If standard deviation is high, you may want to run more repetitions. If it is low, you might be able to get away with fewer repetitions.)
     
     For more information on `timeit` and measuring elapsed time in Python, you may want to refer to [this Stack Overflow post](https://stackoverflow.com/questions/7370801/how-to-measure-elapsed-time-in-python).
+
+
+> Average Latency for Batch size 1:
+
+   | Model | Average Latency (s)| Average Latency, quantized (s) |
+   | ---   | ---            | --- |
+   | LXMERT|    1.1935889963715454   | --- |
+   | VisualBert| 0.6527042077039369 | - |
+   | Episodic Transformers (human+syn)| 0.0324| - |
+   | Episodic Transformers (human only)| 0.02994| - |
+   | CLIP | 1.2353 | - |
+
 2. Repeat this, varying one of: batch size, input size, other. Plot the results (sorry this isn't a notebook):
    ```
    import matplotlib.pyplot as plt
@@ -97,8 +109,10 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    plt.savefig(plot_fname)
    # or plot.show() if you e.g. copy results to laptop
    ```
+
+
 4. Any difficulties you encountered here? Why or why not?
-> ...
+> Difficulties with ALFRED Seq2Seq; stuck extracting ResNet features; stuck inside model.step(), 
 
 5: Discussion
 ----
