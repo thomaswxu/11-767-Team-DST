@@ -13,20 +13,21 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
 1: Models
 ----
 1. Which models and/or model variants will your group be studying in this lab? What is the original bit width of the models, and what precision will you be quantizing to? What parts of the model will be quantized (e.g. parameters, activations, ...)? Please be specific.
-> - E.T. (human data)
-> - E.T. (human + synthetic data)
 > - LXMERT
 > - VisualBERT
 > - CLIP
+> - DistilBERT
+> - ALBERT
 
 2. Why did you choose these models?
->    - The first two models are variants of an approach proposed by Pashevich, Alexander et al. in their [paper](https://arxiv.org/abs/2105.06453) very recently. Episodic Transformer (E.T.) is a novel multimodal transformer that encodes language inputs and the full episode history of visual observations and actions. We chose this as this achieved the current SOTA on a very challenging ALFRED benchmark.
 
 > - LXMERT consists of three encoders: an object relationship encoder, a language encoder, and a cross-modality encoder.
  VisualBERT is another visually-grounded language model, capable of performing tasks such as captioning, question answering.
 > Since VLN task is also a multimodal (image+text) task, these state-of-the-art models are of great relevance.
 
 > - We benchmarked CLIP because it provided contrast by being a model that is still used with Natural Language Processing, but in a different application area (image labelling) vs our project (navigation).
+
+>    - We benchmarked DistilBERT and ALBERT as they contain much less parameters than original BERT-large and perform almost competitively on may benchmarks. We want to see how thier quantized version fare against quantized original BERT model (especially in accuracy, experiment to be conducted soon.)
 
 3. For each model, you will measure model size (in (mega,giga,...)bytes), and inference latency. You will also be varying a parameter such as input size or batch size. What are your hypotheses for how the quantized models will compare to non-quantized models according to these metrics? Do you think latency will track with model size? Explain.
 > Quantization converts FP32 weights to INT8, which should translate to approximately a 4x reduction in size. 
@@ -116,6 +117,13 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    
    ### VisualBert
    ![lxmert](plot_quant_vis.png)
+
+   ### DistilBERT
+   ![distilBERT](distilBERT.png)
+
+   ### ALBERT
+   ![albert](ALBERT.png)
+   
    ---
 4. Any difficulties you encountered here? Why or why not?
 > Had to reinstall torch on device with the above wheel, since the existing torch build did not have QNNPack compiled.
