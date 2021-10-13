@@ -61,9 +61,9 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    | LXMERT| 816 | 273 |
    | VisualBert| 434 | 178 |
    | CLIP | 591 | 255 |
-   | Seq2Seq_PM | 538 | 109 |
-   | Episodic Transformers (human+syn)| ... | ... |
-   | Episodic Transformers (human only)| ... | ... |
+   | DistilBERT | 254 | 132 |
+   | ViT| ... | ... |
+   | ALBERT| 45 | 23 |
 
 2. Any difficulties you encountered here? Why or why not?
 > ...
@@ -83,6 +83,18 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
     Best practice is to not include the first pass in timing, since it may include data loading, caching, etc.* and to report the mean and standard deviation of *k* repetitions. For the purposes of this lab, *k*=10 is reasonable. (If standard deviation is high, you may want to run more repetitions. If it is low, you might be able to get away with fewer repetitions.)
     
     For more information on `timeit` and measuring elapsed time in Python, you may want to refer to [this Stack Overflow post](https://stackoverflow.com/questions/7370801/how-to-measure-elapsed-time-in-python).
+    
+    In the following table we've reported the average latency of batch size 1 per model.
+
+     | Model | Original Model latency (in seconds)| Quantized Model latency (in seconds) |
+   | ---   | ---  | --- |
+   | LXMERT| 0 | 0 |
+   | VisualBert| 0 | 0 |
+   | CLIP | 0 | 0 |
+   | DistilBERT | 0.173 | 0.063 |
+   | ViT| ... | ... |
+   | ALBERT | 0.362 | 0.127 |
+
 2. Repeat this, varying one of: batch size, input size, other. Plot the results (sorry this isn't a notebook):
    ```
    import matplotlib.pyplot as plt
