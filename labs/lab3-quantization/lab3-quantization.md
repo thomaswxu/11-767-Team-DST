@@ -13,14 +13,14 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
 1: Models
 ----
 1. Which models and/or model variants will your group be studying in this lab? What is the original bit width of the models, and what precision will you be quantizing to? What parts of the model will be quantized (e.g. parameters, activations, ...)? Please be specific.
-> - E.T. (human data)
-> - E.T. (human + synthetic data)
+We  used dynamic quantization provided within Pytorch for each of the following models. All weights corresponding to the linear layers and the activations are quantized to 'int8'. The original bit width of the models is 'FP32'.
 > - LXMERT
 > - VisualBERT
 > - CLIP
+> - DistilBERT
+> - ALBERT
 
 2. Why did you choose these models?
->    - The first two models are variants of an approach proposed by Pashevich, Alexander et al. in their [paper](https://arxiv.org/abs/2105.06453) very recently. Episodic Transformer (E.T.) is a novel multimodal transformer that encodes language inputs and the full episode history of visual observations and actions. We chose this as this achieved the current SOTA on a very challenging ALFRED benchmark.
 
 > - LXMERT consists of three encoders: an object relationship encoder, a language encoder, and a cross-modality encoder.
  VisualBERT is another visually-grounded language model, capable of performing tasks such as captioning, question answering.
@@ -28,9 +28,12 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
 
 > - We benchmarked CLIP because it provided contrast by being a model that is still used with Natural Language Processing, but in a different application area (image labelling) vs our project (navigation).
 
+>    - We benchmarked DistilBERT and ALBERT as they contain much less parameters than original BERT-large and perform almost competitively on may benchmarks. We want to see how thier quantized version fare against quantized original BERT model (especially in accuracy, experiment to be conducted soon.)
+
 3. For each model, you will measure model size (in (mega,giga,...)bytes), and inference latency. You will also be varying a parameter such as input size or batch size. What are your hypotheses for how the quantized models will compare to non-quantized models according to these metrics? Do you think latency will track with model size? Explain.
-> For all transformer based models that we benchmark, the inference latency for one forward should scale quadratically with the input size and should scale linearly with the batch size.
-> We should observe a positive correlation between latency and energy consumption. More parameters would also require running more floating point operations resulting in more energy consumption by the hardware.
+> Quantization converts FP32 weights to INT8, which should translate to approximately a 4x reduction in size.
+> The latency should decrease with the model size.
+
 
 2: Quantization in PyTorch
 ----
@@ -61,9 +64,9 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    | LXMERT| 816 | 273 |
    | VisualBert| 434 | 178 |
    | CLIP | 591 | 255 |
-   | Seq2Seq_PM | 538 | 109 |
-   | Episodic Transformers (human+syn)| ... | ... |
-   | Episodic Transformers (human only)| ... | ... |
+   | DistilBERT | 254 | 132 |
+   | ViT| ... | ... |
+   | ALBERT| 45 | 23 |
 
 2. Any difficulties you encountered here? Why or why not?
 > ...
@@ -83,17 +86,17 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
     Best practice is to not include the first pass in timing, since it may include data loading, caching, etc.* and to report the mean and standard deviation of *k* repetitions. For the purposes of this lab, *k*=10 is reasonable. (If standard deviation is high, you may want to run more repetitions. If it is low, you might be able to get away with fewer repetitions.)
     
     For more information on `timeit` and measuring elapsed time in Python, you may want to refer to [this Stack Overflow post](https://stackoverflow.com/questions/7370801/how-to-measure-elapsed-time-in-python).
+    
+    In the following table we've reported the average latency of batch size 1 per model.
 
-
-> Average Latency for Batch size 1:
-
-   | Model | Average Latency (s)| Average Latency, quantized (s) |
-   | ---   | ---            | --- |
-   | LXMERT|    1.1935889963715454   | --- |
-   | VisualBert| 0.6527042077039369 | - |
-   | Episodic Transformers (human+syn)| 0.0324| - |
-   | Episodic Transformers (human only)| 0.02994| - |
-   | CLIP | 1.2353 | - |
+     | Model | Original Model latency (in seconds)| Quantized Model latency (in seconds) |
+   | ---   | ---  | --- |
+   | LXMERT| 1.193 | 0.472 |
+   | VisualBert| 0.652 | 0.234 |
+   | CLIP | 0 | 0 |
+   | DistilBERT | 0.173 | 0.063 |
+   | ViT| ... | ... |
+   | ALBERT | 0.362 | 0.127 |
 
 2. Repeat this, varying one of: batch size, input size, other. Plot the results (sorry this isn't a notebook):
    ```
@@ -109,15 +112,30 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
    plt.savefig(plot_fname)
    # or plot.show() if you e.g. copy results to laptop
    ```
+   
+   ---
+   ### LXMERT
+   ![lxmert](plot_quant_lxm.png)
+   
+   ### VisualBert
+   ![lxmert](plot_quant_vis.png)
 
+   ### DistilBERT
+   ![distilBERT](distilBERT.png)
 
+   ### ALBERT
+   ![albert](ALBERT.png)
+   
+   ---
 4. Any difficulties you encountered here? Why or why not?
-> Difficulties with ALFRED Seq2Seq; stuck extracting ResNet features; stuck inside model.step(), 
+> Had to reinstall torch on device with the above wheel, since the existing torch build did not have QNNPack compiled.
+> For ALBERT, when the input token count is 416 words, the computation time for one forward pass increases dramatically to ~650 seconds (Not shown in the plot for scale issues). This behavior is not see in its quantized version. Unable to explain this.
 
 5: Discussion
 ----
 1. Analyze the results. Do they support your hypotheses? Why or why not? Did you notice any strange or unexpected behavior? What might be the underlying reasons for that behavior?
-> ...
+> There is an approximate 4-5x reduction in model size after quantization, which supports the hypotheses. This is because of a straighforward reduction in parameter size from FP32 to INT8.
+> Both the quantized models for ALBERT and DistilBERT behave unexpectedly when the input token length increases above 100 tokens. The latency of one forward pass in more than the respective unquantized models after 100 toekns. This is very difficult to explain, and since this happens consistenly for both the models around the same input length, we wonder if this happens for a reason.   
 
 5: Extra
 ----
