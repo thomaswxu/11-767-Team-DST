@@ -41,20 +41,22 @@ input1 = processor(text=["cat", "dog"], images=image, return_tensors="pt", paddi
 input5 = processor(text=["a photo of a cat", "a photo of a dog"], images=image, return_tensors="pt", padding=True) # 5
 input10 = processor(text=["a photo of a cat a photo of a cat", "a photo of a dog a photo of a dog"], images=image, return_tensors="pt", padding=True) # 10
 input25 = processor(text=["a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat", "a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog"], images=image, return_tensors="pt", padding=True) # 25
-input50 = processor(text=["a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat", "a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog "], images=image, return_tensors="pt", padding=True) # 50
-input_list = [input1, input5, input10, input25, input50]
+input50 = processor(text=["a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat", "a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog"], images=image, return_tensors="pt", padding=True) # 50
+input75 = processor(text=["a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat a photo of a cat", "a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog a photo of a dog"], images=image, return_tensors="pt", padding=True) # 25
+input_list = [input1, input5, input10, input25, input50, input75]
 
 
 print("isQuantized: " + str(isQuantized))
 
+outputs = model(**input_list[0]) # run once to make sure model loading, etc. is not included in timing
 for i in range(len(input_list)):
 		inputs = input_list[i]
 		start = timer()
-		for i in range(10):
-			print(i)
+		for j in range(10):
+			print(j)
 			outputs = model(**inputs)
 		end = timer()
-		print("AVG TIME: " + str((end - start)/(i+1)) + " s") # Time in seconds, e.g. 5.38091952400282
+		print("AVG TIME: " + str((end - start)/(j+1)) + " s") # Time in seconds, e.g. 5.38091952400282
 		
 
 logits_per_image = outputs.logits_per_image # this is the image-text similarity score
