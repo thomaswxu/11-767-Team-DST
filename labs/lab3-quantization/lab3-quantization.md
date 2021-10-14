@@ -13,7 +13,8 @@ Group members present in lab today: Thomas Xu, Dhruv Naik, Saloni Mittal
 1: Models
 ----
 1. Which models and/or model variants will your group be studying in this lab? What is the original bit width of the models, and what precision will you be quantizing to? What parts of the model will be quantized (e.g. parameters, activations, ...)? Please be specific.
-We  used dynamic quantization provided within Pytorch for each of the following models. All weights corresponding to the linear layers and the activations are quantized to 'int8'. The original bit width of the models is 'FP32'.
+
+>We  used dynamic quantization provided within Pytorch for each of the following models. All weights corresponding to the linear layers and the activations are quantized to 'int8'. The original bit width of the models is 'FP32'.
 > - LXMERT
 > - VisualBERT
 > - CLIP
