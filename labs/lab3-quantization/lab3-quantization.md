@@ -142,7 +142,7 @@ We  used dynamic quantization provided within Pytorch for each of the following 
 ----
 1. Analyze the results. Do they support your hypotheses? Why or why not? Did you notice any strange or unexpected behavior? What might be the underlying reasons for that behavior?
 > There is an approximate 4-5x reduction in model size after quantization, which supports the hypotheses. This is because of a straighforward reduction in parameter size from FP32 to INT8.
-> Both the quantized models for ALBERT and DistilBERT behave unexpectedly when the input token length increases above 100 tokens. The latency of one forward pass in more than the respective unquantized models after 100 tokens. This is very difficult to explain, and since this happens consistenly for both the models around the same input length, we wonder if this happens for a reason.   
+> Both the quantized models for ALBERT and DistilBERT behave unexpectedly when the input token length increases above 100 tokens. The latency of one forward pass in more than the respective unquantized models after 100 tokens. This is very difficult to explain, and since this happens consistenly for both the models around the same input length, we wonder if this happens for a reason. We also notice similar behavior for CLIP and BERT, further suggesting that this trend is not a coincidence. Perhaps this is due to some strange behavior with the Jetson Nano's compute hardware; e.g. for small input sizes the quantized version with ints may be better optimized, but for large input sizes they are less optimized on the hardware.
 
 5: Extra
 ----
