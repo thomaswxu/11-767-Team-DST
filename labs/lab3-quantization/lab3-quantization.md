@@ -115,7 +115,7 @@ We  used dynamic quantization provided within Pytorch for each of the following 
    
    ---
    ### LXMERT
-   ![lxmert](plot_quant_lxm.png)
+   ![lxmert1](plot_quant_lxm.png)
    
    ### VisualBert
    ![visualbert](plot_quant_vis.png)
