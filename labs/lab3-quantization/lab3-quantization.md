@@ -19,6 +19,7 @@ We  used dynamic quantization provided within Pytorch for each of the following 
 > - CLIP
 > - DistilBERT
 > - ALBERT
+> - BERT
 
 2. Why did you choose these models?
 
@@ -28,7 +29,7 @@ We  used dynamic quantization provided within Pytorch for each of the following 
 
 > - We benchmarked CLIP because it provided contrast by being a model that is still used with Natural Language Processing, but in a different application area (image labelling) vs our project (navigation).
 
->    - We benchmarked DistilBERT and ALBERT as they contain much less parameters than original BERT-large and perform almost competitively on may benchmarks. We want to see how thier quantized version fare against quantized original BERT model (especially in accuracy, experiment to be conducted soon.)
+>    - We benchmarked DistilBERT and ALBERT as they contain much less parameters than original BERT-large and perform almost competitively on may benchmarks. We want to see how their quantized version fare against quantized original BERT model (especially in accuracy, experiment to be conducted soon.) We benchmarked BERT to act as a comparison for these.
 
 3. For each model, you will measure model size (in (mega,giga,...)bytes), and inference latency. You will also be varying a parameter such as input size or batch size. What are your hypotheses for how the quantized models will compare to non-quantized models according to these metrics? Do you think latency will track with model size? Explain.
 > Quantization converts FP32 weights to INT8, which should translate to approximately a 4x reduction in size.
@@ -52,6 +53,7 @@ We  used dynamic quantization provided within Pytorch for each of the following 
 > Instead of finding "Great Dane" it finds "Blue Tick" after changing to mobilenet_v3_large with no quantization.
 5. Try to use this to quantize your models. If you're feeling lost and/or you're unable to get this to work on your model [here is a tutorial on using dynamic quantization on a fine-tuned BERT](https://pytorch.org/tutorials/intermediate/dynamic_quantization_bert_tutorial.html) and [here is one quantizing an LSTM language model](https://pytorch.org/tutorials/advanced/dynamic_quantization_tutorial.html). 
 6. Any difficulties you encountered here? Why or why not?
+> Some models that we were originally going to quantize did not work with the torch quantization command because the model "had no attribute eval()"
 
 3: Model size
 ----
@@ -65,11 +67,11 @@ We  used dynamic quantization provided within Pytorch for each of the following 
    | VisualBert| 434 | 178 |
    | CLIP | 591 | 255 |
    | DistilBERT | 254 | 132 |
-   | ViT| ... | ... |
+   | BERT| 420 | 174 |
    | ALBERT| 45 | 23 |
 
 2. Any difficulties you encountered here? Why or why not?
-> ...
+> N/A
 
 4: Latency
 ----
@@ -93,9 +95,9 @@ We  used dynamic quantization provided within Pytorch for each of the following 
    | ---   | ---  | --- |
    | LXMERT| 1.193 | 0.472 |
    | VisualBert| 0.652 | 0.234 |
-   | CLIP | 1.197 | 1.08 |
+   | CLIP | 1.010 | 0.962 |
    | DistilBERT | 0.173 | 0.063 |
-   | ViT| ... | ... |
+   | BERT| 0.390 | 0.157 |
    | ALBERT | 0.362 | 0.127 |
 
 2. Repeat this, varying one of: batch size, input size, other. Plot the results (sorry this isn't a notebook):
@@ -128,6 +130,9 @@ We  used dynamic quantization provided within Pytorch for each of the following 
    
    ### CLIP
    ![clip](plot_clip_quantize.png)
+
+   ### BERT
+   ![bert-base-uncased](plot_bert_quantize.png)
    ---
 4. Any difficulties you encountered here? Why or why not?
 > Had to reinstall torch on device with the above wheel, since the existing torch build did not have QNNPack compiled.
@@ -137,7 +142,7 @@ We  used dynamic quantization provided within Pytorch for each of the following 
 ----
 1. Analyze the results. Do they support your hypotheses? Why or why not? Did you notice any strange or unexpected behavior? What might be the underlying reasons for that behavior?
 > There is an approximate 4-5x reduction in model size after quantization, which supports the hypotheses. This is because of a straighforward reduction in parameter size from FP32 to INT8.
-> Both the quantized models for ALBERT and DistilBERT behave unexpectedly when the input token length increases above 100 tokens. The latency of one forward pass in more than the respective unquantized models after 100 toekns. This is very difficult to explain, and since this happens consistenly for both the models around the same input length, we wonder if this happens for a reason.   
+> Both the quantized models for ALBERT and DistilBERT behave unexpectedly when the input token length increases above 100 tokens. The latency of one forward pass in more than the respective unquantized models after 100 tokens. This is very difficult to explain, and since this happens consistenly for both the models around the same input length, we wonder if this happens for a reason.   
 
 5: Extra
 ----
