@@ -93,7 +93,7 @@ We  used dynamic quantization provided within Pytorch for each of the following 
    | ---   | ---  | --- |
    | LXMERT| 1.193 | 0.472 |
    | VisualBert| 0.652 | 0.234 |
-   | CLIP | 0 | 0 |
+   | CLIP | 1.197 | 1.08 |
    | DistilBERT | 0.173 | 0.063 |
    | ViT| ... | ... |
    | ALBERT | 0.362 | 0.127 |
@@ -126,6 +126,8 @@ We  used dynamic quantization provided within Pytorch for each of the following 
    ### ALBERT
    ![albert](ALBERT.png)
    
+   ### CLIP
+   ![clip](plot_clip_quantize.png)
    ---
 4. Any difficulties you encountered here? Why or why not?
 > Had to reinstall torch on device with the above wheel, since the existing torch build did not have QNNPack compiled.
