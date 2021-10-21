@@ -4,9 +4,9 @@ The goal of this lab is for you to survey work related to your project, decide o
 
 Ideally, the outcome of this lab would be: (1) the related work section of your project report is written and (2) baselines have been benchmarked.
 
-Group name:
+Group name: DST
 ---
-Group members present in lab today:
+Group members present in lab today: Thomas Xu, Druhv Naik, Saloni Mittal
 
 1: Related Work
 ----
@@ -14,13 +14,34 @@ Group members present in lab today:
     - Summary of the main contributions of that work.
     - How your proposed project builds upon or otherwise relates to that work.
 
+**(Baseline Name)**
+> ...  
+
+**(Baseline Name)**
+> ...  
+
+**(Baseline Name)**
+> ...  
+
+...
+
 2: Baselines
 ----
-1. What are the baselines that you will be running for your approach? Please be specific: data, splits, models and model variants, any other relevant information.
-2. These baselines should be able to run on your device within a reasonable amount of time. If you haven't yet tried to run them, please include a back-of-the-envelope calculation of why you think they will fit in memory. If the baselines will not fit in memory, return to (1) and adjust accordingly.
+1. What are the baselines that you will be running for your approach? Please be specific: data, splits, models and model variants, any other relevant information.  
+
+**(Baseline/Model Name)**
+> - Data: 
+> - Splits:
+> - ...
+
+2. These baselines should be able to run on your device within a reasonable amount of time. If you haven't yet tried to run them, please include a back-of-the-envelope calculation of why you think they will fit in memory. If the baselines will not fit in memory, return to (1) and adjust accordingly.  
+> ...
 3. How will you be evaluating your baselines?
+> ...
 4. Implement and run the baselines. Document any challenges you run into here, and how you solve them or plan to solve them.
+> ...
 5. If you finish running and evaluating your baselines, did the results align with your hypotheses? Are there any changes or focusing that you can do for your project based on insights from these results?
+> ...
 
 3: Extra
 ----
