@@ -14,13 +14,23 @@ Group members present in lab today: Thomas Xu, Druhv Naik, Saloni Mittal
     - Summary of the main contributions of that work.
     - How your proposed project builds upon or otherwise relates to that work.
 
-**(Baseline Name)**
+**Room-Across-Room: Multilingual Vision-and-Language
+Navigation with Dense Spatiotemporal Grounding**
+> - Summary of main contributions:
+>   - The authors introduce "Room-Across-Room" (RxR), which is a new Vision-and-Language Navigation (VLN) dataset. This new dataset expands upon previous datasets by addressing previous biases in paths and providing additional information for visible entities. It also supports three typologically diverse languages (English, Hindi, Telegu) to prevent overfitting to particular languages. They also provide baseline scores for monolingual, multilingual, and multitask VLN learning settings.
+> - How we build upon or relate to the work:
+>   - Our project examines how existing VLN models can be run on edge devices. Most of the existing research we have found makes use of datasets and simulators (e.g. R2R, Matterport) that are similar to the one in this work. 
+
+**Are We There Yet? Learning to Localize in Embodied Instruction Following**
+> - Summary of main contributions:
+>   - The authors address the challenge of the agent localizing itself and target key locations in the simulated environment during VLN tasks. To do so, they add additional viewing angles to the agent's field of view (FOV), so that they may better train the agent to predict its localized location with relation to the target location each timestep. The authors also add their own object detection module to the pipelines of existing work to improve upon baseline performance.
+> - How we built upon or relate to the work:
+>   - Our project and this work both examine VLN performance for embodied agents in simulated environments. This work focuses more closely on one aspect of that, namely the challenges of learning the ability to localize, whereas we focus on reducing model size so that it may be run on the edge.
+
+**(Related Work)**
 > ...  
 
-**(Baseline Name)**
-> ...  
-
-**(Baseline Name)**
+**(Related Work)**
 > ...  
 
 ...
