@@ -72,15 +72,20 @@ Interactive Instruction Following**
 > - Certain dependencies of the baseline code are not easily installed on the device, e.g. specific Torch version, h5py, etc.
 > - Encountered memory leak issues when running the baseline model's forward pass functions. The hypothesized that this was because of the weight parameters for each node being saved in torch (for future gradient calculations). This problem was solved by explicitly setting the "@torch.no_grad()" parameter for the function.
 
-> Results:
+Results:
 
    | Checkpoint | Size (MB)| Total Loss (valid_seen) | Total Loss (valid_unseen) | Avg Latency (s)
    | ---   | ---  | --- | --- | --- |
    | best_seen | 526 | 1.026 | 3.288 | 2.928 |
    | best_unseen | 526 | 1.130 | 1.910 | 3.053 |
+   | best_seen (TF) | 526 | 1.026 | 3.288 | 2.788 |
+   | best_unseen (TF) | 526 | 1.130 | 1.909 | 3.180 |
+
+("TF": with teacher forcing)   
 
 5. If you finish running and evaluating your baselines, did the results align with your hypotheses? Are there any changes or focusing that you can do for your project based on insights from these results?
-> ...
+> - One hypothesis we had is that when teacher forcing (TF) is enabled, the total loss will be lower because the path will be closer to the expert action sequence. However, the results for total loss were nearly identical to the loss without teacher forcing. This is highly unintuitive, and makes us suspect that perhaps for some reason the teacher-forcing is not being set correctly during run-time; perhaps there are additional flags we need to set to use teacher-forcing that we are not aware of.
+
 
 3: Extra
 ----
