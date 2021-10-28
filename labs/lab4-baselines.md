@@ -98,6 +98,8 @@ Results:
 > - One hypothesis we had is that when teacher forcing (TF) is enabled, the total loss will be lower because the path will be closer to the expert action sequence. However, the results for total loss were nearly identical to the loss without teacher forcing. This is highly unintuitive, and makes us suspect that perhaps for some reason the teacher-forcing is not being set correctly during run-time; perhaps there are additional flags we need to set to use teacher-forcing that we are not aware of.
 > - We were not able to compute the standard metrics used for ALFRED as we did not use a simulator for testing. We used the validation data in a static fashion and just computed the loss at every timestep against the ground truth action.
 > - The validation loss does not have a high correlation with performance because an agent can take an action different to the expert and still complete the task. But a low validation loss does tell us that model generates action sequences close to expert actions.
+> - The model size of this Seq2Seq baseline model is more than 500 MB. With a RAM size of 2GB, it might be infeasible to do real-time navifation specially when the visual features are computed on-the-fly using a ResNet model(which will take additional memory).
+> - Also, the model we benchmarked in this report is the first baseline which came out with the dataset paper. There have been many high performing models proposed since for this benchmark that outperform this baseline by large margins. With increasing performance, the model sizes have also increased. In our future work, we would like to achieve comparable performance with the SOTA models in a resource-constrained setting.
 
 3: Extra
 ----
