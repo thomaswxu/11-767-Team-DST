@@ -48,10 +48,17 @@ Interactive Instruction Following**
 > - Model: Seq2Seq
 > - Model Variants: None
 
+![ALFRED_seq2seq](lab4_model.png)
+(Diagram of model architecture, from original ALFRED paper)
+
 2. These baselines should be able to run on your device within a reasonable amount of time. If you haven't yet tried to run them, please include a back-of-the-envelope calculation of why you think they will fit in memory. If the baselines will not fit in memory, return to (1) and adjust accordingly.  
-> The model checkpoints fit on the device (Jetson Nano, 2 MB RAM):
+> The model checkpoints fit on the device (Jetson Nano, 2 GB RAM):
 > - best_seen.pth: 526 MB
 > - best_unseen.pth 526 MB
+> The validation data also fits on the device:
+> - valid_seen: 1.3 GB
+> - valid_unseen: 1.2 GB
+
 3. How will you be evaluating your baselines?
 > - We will compare total loss on the validation dataset for the two given checkpoints: best_seen.pth and best_unseen.pth. This loss is equal to the sum of these components:
 >   - Action Loss (cross entropy)
