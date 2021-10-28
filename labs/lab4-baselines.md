@@ -80,7 +80,8 @@ Interactive Instruction Following**
    | best_unseen | 526 | 1.130 | 1.910 | 3.053 |
 
 5. If you finish running and evaluating your baselines, did the results align with your hypotheses? Are there any changes or focusing that you can do for your project based on insights from these results?
-> ...
+> - We were not able to compute the standard metrics used for ALFRED as we did not use a simulator for testing. We used the validation data in a static fashion and just computed the loss at every timestep against the ground truth action.
+> - The validation loss does not have a high correlation with performance because an agent can take an action different to the expert and still complete the task. But a low validation loss does tell us that model generates action sequences close to expert actions.
 
 3: Extra
 ----
