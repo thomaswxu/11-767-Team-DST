@@ -16,16 +16,12 @@ Group members present in lab today: Thomas Xu, Druhv Naik, Saloni Mittal
 
 **Room-Across-Room: Multilingual Vision-and-Language
 Navigation with Dense Spatiotemporal Grounding**
-> - Summary of main contributions:
->   - The authors introduce "Room-Across-Room" (RxR), which is a new Vision-and-Language Navigation (VLN) dataset. This new dataset expands upon previous datasets by addressing previous biases in paths and providing additional information for visible entities. It also supports three typologically diverse languages (English, Hindi, Telegu) to prevent overfitting to particular languages. They also provide baseline scores for monolingual, multilingual, and multitask VLN learning settings.
-> - How we build upon or relate to the work:
->   - Our project examines how existing VLN models can be run on edge devices. Most of the existing research we have found makes use of datasets and simulators (e.g. R2R, Matterport) that are similar to the one in this work. 
+> - The authors introduce "Room-Across-Room" (RxR), which is a new Vision-and-Language Navigation (VLN) dataset. This new dataset expands upon previous datasets by addressing previous biases in paths and providing additional information for visible entities. It also supports three typologically diverse languages (English, Hindi, Telegu) to prevent overfitting to particular languages. They also provide baseline scores for monolingual, multilingual, and multitask VLN learning settings.
+> - Our project examines how existing VLN models can be run on edge devices. Most of the existing research we have found makes use of datasets and simulators (e.g. R2R, Matterport) that are similar to the one in this work. 
 
 **Are We There Yet? Learning to Localize in Embodied Instruction Following**
-> - Summary of main contributions:
->   - The authors address the challenge of the agent localizing itself and target key locations in the simulated environment during VLN tasks. To do so, they add additional viewing angles to the agent's field of view (FOV), so that they may better train the agent to predict its localized location with relation to the target location each timestep. The authors also add their own object detection module to the pipelines of existing work to improve upon baseline performance.
-> - How we built upon or relate to the work:
->   - Our project and this work both examine VLN performance for embodied agents in simulated environments. This work focuses more closely on one aspect of that, namely the challenges of learning the ability to localize, whereas we focus on reducing model size so that it may be run on the edge.
+> - The authors address the challenge of the agent localizing itself and target key locations in the simulated environment during VLN tasks. To do so, they add additional viewing angles to the agent's field of view (FOV), so that they may better train the agent to predict its localized location with relation to the target location each timestep. The authors also add their own object detection module to the pipelines of existing work to improve upon baseline performance.
+> - Our project and this work both examine VLN performance for embodied agents in simulated environments. This work focuses more closely on one aspect of that, namely the challenges of learning the ability to localize, whereas we focus on reducing model size so that it may be run on the edge.
 
 **Look Wide and Interpret Twice: Improving Performance on Interactive Instruction-following Tasks**
 > - This paper presents a combination of several new ideas for interactive instruction following tasks and have showed the effectiveness of its approach on ALFRED. One key idea is using a two-stage interpretation of the provided instructions. First an instruction decoder interprets the language instructions without any visual inputs. It predicts a tentative sequece of action-object pairs where the "object" means the classes of objects. It then integrates the prediction with the visual information etc., yielding the final prediction of an action and an object. The authors hypothesise that since the obect’s class to interact is identified in the first stage, the model can accurately select the correct object from the input image in the second stage. They also show how by applying hierarchical attention from multiple surrounding views helps to obtain object-centric representation of visual inputs and improves performace on ALFRED.
@@ -39,22 +35,19 @@ Interactive Instruction Following**
 
 **Embodied BERT: A Transformer Model for Embodied, Language-guided Visual Task Completion**
 
->  Embodied Bert (EmBERT) proposes a transformer based language conditioned task completion model for high dimension, multimodal inputs across multiple time steps.
+> - Embodied Bert (EmBERT) proposes a transformer based language conditioned task completion model for high dimension, multimodal inputs across multiple time steps.
 > It achieves a competitive score on the ALFRED Benchmark for interpreting grounded instructions for everyday tasks.
 > The model uses OSCAR as backbone for multimodal representations. One of the main insights from the paper is the use of Object centric navigation, which they show improves the model success rate. 
 > Since transformers have a quadratic time complexity with input length, EmBERT makes use segment level recurrent action decoder that is useful to model long trajectories and reuse the segment level state. 
+> - We use ALFRED dataset to benchmark our work in vision language navigation, thus this related work provides us with some key ideas such as use of object centric representations, and recurrent action decoder, to improve on the success rates and latency on device
 
-> We use ALFRED dataset to benchmark our work in vision language navigation, thus this related work provides us with some key ideas such as use of object centric representations, and recurrent action decoder, to improve on the success rates and latency on device
+**Vision-and-Language Navigation: Interpreting visually-grounded navigation instructions in real environments**
 
-**Vision-and-Language Navigation: Interpreting visually-grounded navigation instructions in real environments
-**
-
-> Vision language navigation is an important field that enables embodied agents such as robots, autonomous vehicles to interact with and navigate their environment based on natural language instructions. It can be formulated as a visually grounded seq2seq task.
+> - Vision language navigation is an important field that enables embodied agents such as robots, autonomous vehicles to interact with and navigate their environment based on natural language instructions. It can be formulated as a visually grounded seq2seq task.
 > Previous work focused on rendered image instructions, where the image variations was limited, thus the overall navigation instruction variations were also limited. This paper proposes a new dataset: Room2Room (R2R) which uses real life images to train models, thus enabling models to generalise to unseen environments and image variations.
 > Another contribution of this work is the Matterport3D simulator, which enables use of real life pixels and 3d maps to run navigation simulations.
 > The work also provides a Seq2Seq model baseline which encodes the language instructions with an LSTM and images with ResNet-152, and predicts the action for next step with help of attention mechanism.
-
-> This work provides an important dataset for benchmarking vision language navigation models, and also provides a simulator to train VLN models. We may consider using this dataset in the future to benchmark our work.
+> - This work provides an important dataset for benchmarking vision language navigation models, and also provides a simulator to train VLN models. We may consider using this dataset in the future to benchmark our work.
 
 2: Baselines
 ----
