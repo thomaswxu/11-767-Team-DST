@@ -46,10 +46,15 @@ Interactive Instruction Following**
 
 > We use ALFRED dataset to benchmark our work in vision language navigation, thus this related work provides us with some key ideas such as use of object centric representations, and recurrent action decoder, to improve on the success rates and latency on device
 
-**Vision-and-Language Navigation: Interpreting visually-grounded navigation instructions in real environments**
+**Vision-and-Language Navigation: Interpreting visually-grounded navigation instructions in real environments
+**
 
 > Vision language navigation is an important field that enables embodied agents such as robots, autonomous vehicles to interact with and navigate their environment based on natural language instructions. It can be formulated as a visually grounded seq2seq task.
-> 
+> Previous work focused on rendered image instructions, where the image variations was limited, thus the overall navigation instruction variations were also limited. This paper proposes a new dataset: Room2Room (R2R) which uses real life images to train models, thus enabling models to generalise to unseen environments and image variations.
+> Another contribution of this work is the Matterport3D simulator, which enables use of real life pixels and 3d maps to run navigation simulations.
+> The work also provides a Seq2Seq model baseline which encodes the language instructions with an LSTM and images with ResNet-152, and predicts the action for next step with help of attention mechanism.
+
+> This work provides an important dataset for benchmarking vision language navigation models, and also provides a simulator to train VLN models. We may consider using this dataset in the future to benchmark our work.
 
 2: Baselines
 ----
