@@ -53,8 +53,9 @@ Navigation with Dense Spatiotemporal Grounding**
 > We will compare cross entropy loss on the validation dataset for the two given checkpoints: best_seen.pth and best_unseen.pth. We will also compare the average latency for the forward pass of these, using a batch size of one (averaged over 10 passes)
 4. Implement and run the baselines. Document any challenges you run into here, and how you solve them or plan to solve them.
 > Challenges faced:
-> - Ran into issues using the given code from the repo without interfacing with the simulator online. To solve this, we contacted the original authors via GitHub and they gave us recommendations for running without the simulator.
+> - Ran into issues using the given code from the repo without interfacing with the simulator in an online/dynamic way. To solve this, we contacted the original authors via GitHub and they gave us recommendations for running without the simulator.
 > - Certain dependencies of the baseline code are not easily installed on the device, e.g. specific Torch version, h5py, etc.
+> - Encountered memory leak issues when running the baseline model's forward pass functions. The hypothesized that this was because of the weight parameters for each node being saved in torch (for future gradient calculations). This problem was solved by explicitly setting the "@torch.no_grad()" parameter for the function.
 
 > Results:
 
