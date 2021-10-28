@@ -27,8 +27,10 @@ Navigation with Dense Spatiotemporal Grounding**
 > - How we built upon or relate to the work:
 >   - Our project and this work both examine VLN performance for embodied agents in simulated environments. This work focuses more closely on one aspect of that, namely the challenges of learning the ability to localize, whereas we focus on reducing model size so that it may be run on the edge.
 
-**(Related Work)**
-> ...  
+**Look Wide and Interpret Twice: Improving Performance on Interactive Instruction-following Tasks**
+> This paper presents a combination of several new ideas for interactive instruction following tasks and have showed the effectiveness of its approach on ALFRED. One key idea is using a two-stage interpretation of the provided instructions. First an instruction decoder interprets the language instructions without any visual inputs. It predicts a tentative sequece of action-object pairs where the "object" means the classes of objects. It then integrates the prediction with the visual information etc., yielding the final prediction of an action and an object. The authors hypothesise that since the obect’s class to interact is identified in the first stage, the model can accurately select the correct object from the input image in the second stage. They also show how by applying hierarchical attention from multiple surrounding views helps to obtain object-centric representation of visual inputs and improves performace on ALFRED.
+> The ALFRED paper present a baseline Seq2Seq model in which all the language directives are represented as a single sequence of word features, and soft attention is generated over it to specify the portion to deal with at each timestep. The authors argue this method does not use a few constraints on parsing the step-by-step instructions that they should be processed in the given order and when dealing with one of them, the other instructions, especially the future ones, will be of little importance. They claim that their proposed approach takes the above constraints into account.
+
 
 **(Related Work)**
 > ...  
