@@ -39,17 +39,30 @@ Navigation with Dense Spatiotemporal Grounding**
 ----
 1. What are the baselines that you will be running for your approach? Please be specific: data, splits, models and model variants, any other relevant information.  
 
-**(Baseline/Model Name)**
-> - Data: 
-> - Splits:
-> - ...
+**[ALFRED Seq2Seq](https://github.com/askforalfred/alfred/tree/master/models)**
+> - Data: ALFRED dataset (valid_seen, valid_unseen)
+> - Splits: None
+> - Model: Seq2Seq
+> - Model Variants: None
 
 2. These baselines should be able to run on your device within a reasonable amount of time. If you haven't yet tried to run them, please include a back-of-the-envelope calculation of why you think they will fit in memory. If the baselines will not fit in memory, return to (1) and adjust accordingly.  
-> ...
+> The model checkpoints fit on the device (Jetson Nano, 2 MB RAM):
+> - best_seen.pth: 526 MB
+> - best_unseen.pth 526 MB
 3. How will you be evaluating your baselines?
-> ...
+> We will compare cross entropy loss on the validation dataset for the two given checkpoints: best_seen.pth and best_unseen.pth. We will also compare the average latency for the forward pass of these, using a batch size of one (averaged over 10 passes)
 4. Implement and run the baselines. Document any challenges you run into here, and how you solve them or plan to solve them.
-> ...
+> Challenges faced:
+> - Ran into issues using the given code from the repo without interfacing with the simulator online. To solve this, we contacted the original authors via GitHub and they gave us recommendations for running without the simulator.
+> - Certain dependencies of the baseline code are not easily installed on the device, e.g. specific Torch version, h5py, etc.
+
+> Results:
+
+   | Checkpoint | Size (MB)| Total Loss (valid_seen) | Total Loss (valid_unseen) | Avg Latency (s)
+   | ---   | ---  | --- | --- | --- |
+   | best_seen | 526 | 1.026 | 3.288 | 2.928 |
+   | best_unseen | 526 | 1.130 | 1.910 | 3.053 |
+
 5. If you finish running and evaluating your baselines, did the results align with your hypotheses? Are there any changes or focusing that you can do for your project based on insights from these results?
 > ...
 
