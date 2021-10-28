@@ -37,6 +37,20 @@ Interactive Instruction Following**
 > - This paper is one of the top models on the ALFRED leaderboard. The authors of this work claim that they do not use depth, segmentation masks, class masks, and panoramic images during test time. They do not use the alignments between step-by-step instructions and expert action sequences for training or testing (i.e., the instructions are serialized into a single sentence). Their model exploits the surrounding views by additional observations from navigable directions to enlarge the field of view of the agent.They design a model factorizing object localization and action policy in separate streams in a unified end-to-end framework.
 > - Their method provides a framework that can be adopted in our future work on ALFRED. The two-stream factorization approach looks promising. They also propose improved components for object localization and obstacle avoidance that can be integrated with our work.
 
+**Embodied BERT: A Transformer Model for Embodied, Language-guided Visual Task Completion**
+
+>  Embodied Bert (EmBERT) proposes a transformer based language conditioned task completion model for high dimension, multimodal inputs across multiple time steps.
+> It achieves a competitive score on the ALFRED Benchmark for interpreting grounded instructions for everyday tasks.
+> The model uses OSCAR as backbone for multimodal representations. One of the main insights from the paper is the use of Object centric navigation, which they show improves the model success rate. 
+> Since transformers have a quadratic time complexity with input length, EmBERT makes use segment level recurrent action decoder that is useful to model long trajectories and reuse the segment level state. 
+
+> We use ALFRED dataset to benchmark our work in vision language navigation, thus this related work provides us with some key ideas such as use of object centric representations, and recurrent action decoder, to improve on the success rates and latency on device
+
+**Vision-and-Language Navigation: Interpreting visually-grounded navigation instructions in real environments
+**
+
+> Vision language navigation is an important field that enables embodied agents such as robots, autonomous vehicles to interact with and navigate their environment based on natural language instructions. It can be formulated as a visually grounded seq2seq task.
+> 
 
 2: Baselines
 ----
