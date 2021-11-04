@@ -19,7 +19,7 @@ We also want to benchmark the model's performance after quantization.
 2: Execution
 ----
 1. What have you achieved today / this week? Was this more than you had planned to get done? If so, what do you think worked well?
-2. Was there anything you had hoped to achieve, but did not? What happened? How did you work to resolve these challenges?
+> We compared performance across different batch sizes on the baseline model (ALFRED, Seq2Seq) on the Jetson Nano. We compared batch size to latency and RAM usage (see figures below).
 
 | Batch Size | Avg Latency (s) | Max RAM used (GB) |
 | ---   | --- | --- |
@@ -30,6 +30,9 @@ We also want to benchmark the model's performance after quantization.
 
 ![batch_latency](lab5_batch_latency.png)
 ![batch_ram](lab5_batch_ram.png)
+
+
+2. Was there anything you had hoped to achieve, but did not? What happened? How did you work to resolve these challenges?
 
 > Challenges:
 > - We were not able to run this on the Jetson's GPU. When trying to add the "--gpu" flag, the Jetson memory usage maxed out almost immediately. We suspect that perhaps it was trying to make a copy of the model, which used up the memory. For now, we run without the "--gpu" flag.
@@ -51,8 +54,12 @@ We also want to benchmark the model's performance after quantization.
 
 2. Based on your work today / this week, and your answer to (1), what are your group's planned next steps?
 > Next Steps:
+> - Fix the bug stopping us from quantizing the pretrained Seq2Seq model, then re-run the above tests to compare performance.
 > - Build a shallow transformer-based Seq2Seq model similar to the benchmarked model. Compare LSTM-based Seq2Seq against a transformer-based model. We hypothesise that the latency should improve with the latter as it allows data parallelism. We would also like to perform comparisons on power consumption profiles.
 > - Explore other compression techniques that can be applied to our two Seq2Seq model.
 > - Explore what advanced concepts/techniques introduced in the class can be utilized for our architectures. 
 
 3. How will each group member contribute towards those steps? 
+> - Saloni: Look into what work is required for the shallow transformer-based Seq2Seq model,
+> - Dhruv: Explore other compression techniques from class to apply, debug Torch quantization bug
+> - Thomas: Explore other compression techniques to apply, look into architecture specific compression techniques to use for project.
