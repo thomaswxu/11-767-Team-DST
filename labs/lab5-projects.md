@@ -10,11 +10,11 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 ----
 1. What is your plan for today, and this week? 
 
-> We had done an initial benchmark of our model in the previous lab. Now, we want to assess at what input batch sizes or other factors like memory mapped disk space do we max out the RAM on the device. Also, how does the latency and power consumption scale on doing so. 
-We also want to benchmark the model's performance after quantization.
+> We benchmarked the model on a laptop in previous class due to issues with installation of requirements on device (CUDA version mismatch, h5py installation etc). This week we plan to debug the installation issues on device, run the seq2seq model on device, benchmark the latency and memory consumed, using a small validation subset, since the entire dataset is too large to fit on device. We also plan to quantize the model and compare the results with our existing benchmarking results.
+Lastly, we will plan our experiments and work for the coming weeks, and decide on particular areas such as memory consumption, model size or latency to improve on.
 
 2. How will each group member contribute towards this plan?
-> Each member will help transfer necessary data and model files to Jetson, and will work together to debug code errors encountered.
+> Each member will help transfer necessary data and model files to Jetson, and will work together to debug any issues encountered running the model on device.
 
 2: Execution
 ----
@@ -43,7 +43,7 @@ We also want to benchmark the model's performance after quantization.
 
 3. What were the contributions of each group member towards all of the above?
 > - Saloni: Run different batch sizes on Jetson, debug GPU vs CPU usage, help debug quantization on Jetson, reduce input data sizes to fit on memory
-> - Dhruv: Debug GPU vs CPU usage, run different batch sizes on Jetson, transfer json features to Jetson, install Jtop, clear space on Jetson
+> - Dhruv: Debug GPU vs CPU usage, run different batch sizes on Jetson, transfer json features to Jetson, install Jtop, clear space on Jetson, debugging errors with parsing arguments and issue preprocessing a small subset transferred to device
 > - Thomas: Compare Jetson results to results from laptop, debug FileNotFoundErrors, record performance data, move valid_seen/valid_unseen data to Jetson, help debug quantization on Jetson
 
 3: Next steps
