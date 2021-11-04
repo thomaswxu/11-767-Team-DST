@@ -9,6 +9,10 @@ Group members present in lab today:
 1: Plan
 ----
 1. What is your plan for today, and this week? 
+
+We had benchmarked our model in the previous lab. Now, we want to assess at what input batch sizes or other factors like memory mapped disk space do we max out the RAM on the device. Also, how does the latency and power consumption scale on doing so. 
+We also want to benchmark the model's performance after quantization.
+
 2. How will each group member contribute towards this plan?
 
 2: Execution
