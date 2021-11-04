@@ -61,5 +61,5 @@ Lastly, we will plan our experiments and work for the coming weeks, and decide o
 
 3. How will each group member contribute towards those steps? 
 > - Saloni: Look into what work is required for the shallow transformer-based Seq2Seq model,
-> - Dhruv: Explore other compression techniques from class to apply, debug Torch quantization bug
-> - Thomas: Explore other compression techniques to apply, look into architecture specific compression techniques to use for project.
+> - Dhruv: Exploring techniques to improve on latency and memory consumption, debug pytorch quantization issues with existing codebase
+> - Thomas: Explore compression techniques to apply, look into architecture specific compression techniques to use for project.
