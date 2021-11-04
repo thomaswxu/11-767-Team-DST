@@ -27,6 +27,7 @@ We also want to benchmark the model's performance after quantization.
 | 2 | 10.275 | 1.20 |
 | 4 | 22.250 | 1.42 |
 | 8 | 46.571 | 1.85 |
+
 ![batch_latency](lab5_batch_latency.png)
 ![batch_ram](lab5_batch_ram.png)
 
