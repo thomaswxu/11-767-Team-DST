@@ -58,8 +58,9 @@ We also want to benchmark the model's performance after quantization.
 > - Build a shallow transformer-based Seq2Seq model similar to the benchmarked model. Compare LSTM-based Seq2Seq against a transformer-based model. We hypothesise that the latency should improve with the latter as it allows data parallelism. We would also like to perform comparisons on power consumption profiles.
 > - Explore other compression techniques that can be applied to our two Seq2Seq model.
 > - Explore what advanced concepts/techniques introduced in the class can be utilized for our architectures. 
+> - Set up code/VM on GCP
 
 3. How will each group member contribute towards those steps? 
-> - Saloni: Look into what work is required for the shallow transformer-based Seq2Seq model,
-> - Dhruv: Explore other compression techniques from class to apply, debug Torch quantization bug
-> - Thomas: Explore other compression techniques to apply, look into architecture specific compression techniques to use for project.
+> - Saloni: Look into what work is required for the shallow transformer-based Seq2Seq model, debug implementation issues
+> - Dhruv: Explore other compression techniques from class to apply, debug Torch quantization bug, set up code/VM on GCP, help debug transformer-based Seq2Seq issues
+> - Thomas: Explore other compression techniques to apply, look into architecture specific compression techniques to use for project, help debug transformer-based Seq2Seq issues
