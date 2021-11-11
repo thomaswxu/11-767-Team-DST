@@ -67,8 +67,9 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 > Next Steps:
 > - Set up the GitHub repo for BERT/Distilbert
 > - Deep-dive into the quantization issues (looking into the actual torch.py files) for the baseline
+> - Check in with Ankit and CMU IT regarding GCP VM issues
 
 3. How will each group member contribute towards those steps? 
 > - Saloni: Train a 6-layer HiTUT model via knowledge distillation using the larger HiTUT teacher model/Follow-up with CMU IT on the GCP VM creation issue.
-> - Dhruv:
+> - Dhruv: 
 > - Thomas: 
