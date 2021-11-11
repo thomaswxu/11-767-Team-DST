@@ -56,7 +56,7 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 
 ---
 
-> - We also spent some time exploring the existing Seq2Seq baseline code and see if it can be tweaked to replace the LSTM model with transformer blocks. The code is very complex and we've made some progress here. This week one of us will continue work on this if we run into any blockers with our first idea of HiTUT.
+> - We also spent some time exploring the existing Seq2Seq baseline code, trying to fix errors while quantizing it, and see if it can be tweaked to replace the LSTM model with transformer blocks. The code is very complex and we've made some progress here. This week one of us will continue work on this if we run into any blockers with our first idea of HiTUT.
 > - We also tried setting up a VM on GCP for training purposes for our coming experiments. As we have signed up with our andrew accounts, GCP throws an admin access error and doesn't allow us to create a VM. We have raised a ticket with CMU IT about this as suggested by our TA, Ankit.
 
 
