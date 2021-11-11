@@ -68,7 +68,7 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 
 3. What were the contributions of each group member towards all of the above?
 > - Saloni: Preliminary exploration of Seq2Seq transformer-based model creation/GCP VM error follow-up/ finding HiTUT model and creating action plan for knowledge distillation on this model.
-> - Dhruv: Debug quantization issues with baseline model.
+> - Dhruv: Debug quantization issues with baseline model, Research methods to improve latency and reduce computational overhead on-device.
 > - Thomas: Research which compression technique is most suitable for our project and look into existing knowledge distillation work for RNNs/LSTMs. Debug quantization issues with baseline model.
 
 3: Next steps
@@ -85,5 +85,5 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 
 3. How will each group member contribute towards those steps? 
 > - Saloni: Train a 6-layer HiTUT model via knowledge distillation using the larger HiTUT teacher model/Follow-up with CMU IT on the GCP VM creation issue.
-> - Dhruv: Set up and test HiTUT BERT/DistilBert GitHub repo on Jetson, and continue debugging quantization issue with baseline model.
+> - Dhruv: Set up and test HiTUT BERT/DistilBert GitHub repo on Jetson, and continue debugging quantization issue with baseline model, experiment with SFT, QRNNs for existing LSTM based model.
 > - Thomas: Set up and test HiTUT BERT/DistilBert GitHub repo on Jetson, and continue debugging quantization issue with baseline model.
