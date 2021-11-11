@@ -10,10 +10,13 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 ----
 1. What is your plan for today, and this week? 
 
-> ...
+> Our current baseline is LSTM-based. We want to explore transformer-based models and compare their performance against our baseline; mainly power consumption and inference speed metrics. We will also perform some preliminary research on other compression techniques for the project. We also want to fix the quantization error that we faced in last lab.
 
 2. How will each group member contribute towards this plan?
-> ...
+> This is our initial tentative plan for this comming week.
+> - Preliminary research on other compression techniques for the project  - Thomas/Dhruv
+> - Preliminary work/research on transformer Seq2Seq - Saloni
+> - Fix quantization for ALFRED + benchmark - Dhruv
 
 2: Execution
 ----
