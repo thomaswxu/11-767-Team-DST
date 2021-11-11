@@ -51,7 +51,7 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 
 **Replacing LSTM cells with QRNN** 
 > QRNN is a sequence modelling approach that uses alternate convolutional layers and recurrent pooling functions.
-> In their paper, [Smerity et al](https://arxiv.org/pdf/1611.01576.pdf) compare QRNN performance with LSTMs and showcase upto 16 times faster training and inference due to increased parallelism. The effect is most significant for smaller batch sizes and longer sequence lengths, which is the case with on-device vision-language navigation.
+> In their paper, [Smerity et al](https://arxiv.org/pdf/1611.01576.pdf) compare QRNN performance with LSTMs and showcase upto 16 times faster inference due to increased parallelism. The effect is most significant for smaller batch sizes and longer sequence lengths, which is the case with on-device vision-language navigation.
 > Thus, another possible experiment to improve on device latency is to replace our LSTM units with QRNNs.
 
 ---
