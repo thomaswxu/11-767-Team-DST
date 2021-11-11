@@ -65,7 +65,7 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 
 2. Based on your work today / this week, and your answer to (1), what are your group's planned next steps?
 > Next Steps:
-> - Set up the GitHub repo for BERT/DistilBert
+> - Set up the GitHub repo for HiTUT BERT/DistilBert
 > - Deep-dive into the quantization issues (looking into the actual torch.py files) for the baseline
 > - Check in with Ankit and CMU IT regarding GCP VM issues
 
