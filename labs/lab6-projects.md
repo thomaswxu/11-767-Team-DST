@@ -60,6 +60,6 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 > - ...
 
 3. How will each group member contribute towards those steps? 
-> - Saloni: 
+> - Saloni: Train a 6-layer HiTUT model via knowledge distillation using the larger HiTUT teacher model/Follow-up with CMU IT on the GCP VM creation issue.
 > - Dhruv:
 > - Thomas: 
