@@ -42,6 +42,20 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 
 >> - One appealing factor of this particular github repo is that its environment is very similar to the ALFRED environment that already exists on jetson. Hence, we will not need to create a completely different python environment that takes up space.
 
+**No Teacher Knowledge Distillation**
+> An effective and compute efficient distillation technique was proposed by Shleifer et al. from Huggingface, which does not require a teacher model during training. In their paper “[Pre-trained Summarization Distillation](https://arxiv.org/pdf/2010.13002.pdf)”, they make a case for shrink and finetune (SFT), by removing alternate layers from the encoder and decoder of the transformer model and then finetune on downstream task, and show comparable results can be achieved in  a fraction of the time, and fraction of compute required for traditional knowledge distillation
+> Using SFT, we can initialize and finetune high quality student models quickly and with less amount of compute
+
+**Hidden-State Caching for LSTMs**
+> State caching is another technique used in correspondance with LSTMs to improve latency and language understanding. Works such as [He et al](https://arxiv.org/pdf/1811.06621.pdf) have observed 50-60% inference time compute savings by using state caching for end to end speech.
+
+**Replacing LSTM cells with QRNN** 
+> QRNNS is a sequence modelling apprtoacg that uses alternate convolutional layers and recurrent pooling functions.
+> In their paper, [Smerity et al](https://arxiv.org/pdf/1611.01576.pdf) compare QRNN performance with LSTMs and showcase upto 16 times faster training and inference due to increased parallelism. The effect is most significant for smaller batch sizes and longer sequence lengths, which is the case with on-device vision-language navigation.
+> Thus, another possible experiment to improve on device latency is to replace our LSTM units with QRNNs.
+
+
+
 >>- We also spent some time exploring the existing Seq2Seq baseline code and see if it can be tweaked to replace the LSTM model with transformer blocks. The code is very complex and we've made some progress here. This week one of us will continue work on this if we run into any blockers with our first idea of HiTUT.
 
 > - We also tried setting up a VM on GCP for training purposes for our coming experiments. As we have signed up with our andrew accounts, GCP throws an admin access error and doesn't allow us to create a VM. We have raised a ticket with CMU IT about this as suggested by our TA, Ankit.
