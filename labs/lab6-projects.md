@@ -65,7 +65,8 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 
 2. Based on your work today / this week, and your answer to (1), what are your group's planned next steps?
 > Next Steps:
-> - ...
+> - Set up the GitHub repo for BERT/Distilbert
+> - Deep-dive into the quantization issues (looking into the actual torch.py files) for the baseline
 
 3. How will each group member contribute towards those steps? 
 > - Saloni: 
