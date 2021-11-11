@@ -47,7 +47,7 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 > Using SFT, we can initialize and finetune high quality student models quickly and with less amount of compute
 
 **Hidden-State Caching for LSTMs**
-> State caching is another technique used in correspondance with LSTMs to improve latency and language understanding. Works such as [He et al](https://arxiv.org/pdf/1811.06621.pdf) have observed 50-60% inference time compute savings by using state caching for end to end speech.
+> State caching is another technique used in correspondance with LSTMs to improve latency and language understanding. Works such as [He et al](https://arxiv.org/pdf/1811.06621.pdf) have observed 50-60% inference time compute savings by using state caching for end to end speech. This can also speed up inference on-device.
 
 **Replacing LSTM cells with QRNN** 
 > QRNNS is a sequence modelling apprtoacg that uses alternate convolutional layers and recurrent pooling functions.
