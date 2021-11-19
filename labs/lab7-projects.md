@@ -25,29 +25,34 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 1. What have you achieved today / this week? Was this more than you had planned to get done? If so, what do you think worked well?  
 > - Resolved the GCP admin issue with the CMU computing help. Successfully, set up a VM and the runtime python environment for HiTUT repo.
 > - Tested the HiTUT RoBERTa trained checkpoint on valid_seen of the ALFRED without the simulator.
-> - The HiTUT model breaks the ALFRED naviagtion tasks into three sub-problems:
+> - The HiTUT model breaks the ALFRED naviagtion tasks into three sub-problems: sub-goal planning, scene navigation, and object manipulation.
+> - The following numbers are per action accuracy for all the sub-goals, navigation actions and the manipulation actions present in the validation seen dataset.
 
+| Actions | accuracy per action | mask accuracy |
+| --- | --- | --- |
+| sub-goals | 6.4k | 0.982 |
+| Navi. Actions | 39k |
+| Mani. actions | 8.3k|
+> - Here's are the statistics of the data distribution of the validation seen dataset in ALFRED.
+
+| Actions | # data instances |
+| --- | --- |
+| sub-goals | 6.4k |
+| Navi. Actions | 39k |
+| Mani. actions | 8.3k|
 
 > - Ran ALFRED Seq2Seq with split up loss components:
->   - valid_seen:
->   - 'loss_action_low': 0.6260462720756945
->   - 'loss_action_low_mask': 0.3933338560163975
->   - 'loss_subgoal_aux': 0.0013221983890221252
->   - 'loss_progress_aux': 0.005602777450922472
->   - 'action_low_f1': 0.7763294361960337
->   - 'action_low_em': 0.0
->   - 'total_loss': 1.0263051034315773
-> - valid_unseen:
->   - 'loss_action_low': 1.2837616373663363
->   - 'loss_action_low_mask': 1.9977664131185282
->   - 'loss_subgoal_aux': 0.0013499829390481034
->   - 'loss_progress_aux': 0.005384720583527308
->   - 'action_low_f1': 0.7204101302493144
->   - 'action_low_em': 0.0
->   - 'total_loss': 3.2882627663405044
+
+| Set | loss_action_low | loss_action_low_mask | loss_subgoal_aux | loss_progress_aux | action_low_f1 | action_low_em | total_loss |
+| ---   | --- | --- | --- | --- | --- | --- | --- |
+| valid_seen | 0.626  | 0.393  | 0.0013|0.0056 | 0.776 | 0.0 | 1.026 | 
+| valid_unseen | 1.284 | 1.998 | 0.001 | 0.005 | 0.720 | 0.0 | 3.288 |
 
 > - Set up new SD card on Jetson to increase storage space from 32 GB to 256 GB
 >   - Now can fit additional repos/models in addition to the ALFRED repo (was taking up almost entire storage space previously)
+
+> - Ground work on running tests for different vocabulary size, layer dimensions in Seq2seq LSTM model
+>   - Current codebase does not make use of <UNK>, thus after "UNK"-ing last N tokens or less frequent tokens, we need to retrain the model to learn a good embedding representation for <UNK> token.
 
 3. What were the contributions of each group member towards all of the above?
 > - Saloni: Fixed GCP set up issues with CMU IT/GCP support, set up HiTUT and got initial results on GCP
@@ -58,10 +63,12 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 ----
 1. Are you making sufficient progress towards completing your final project? Explain why or why not. If not, please report how you plan to change the scope and/or focus of your project accordingly.
 
-> ...
+> Yes
 
 2. Based on your work today / this week, and your answer to (1), what are your group's planned next steps?
 > Next Steps:
+> - Set up HiTUT repo on Jetson, measure latency/power/etc., compare on-device results to GCP results
+> - Quantize ALFRED Seq2Seq model on Jetson, and compare vs. unquantized version (latency, size, power consumption, etc.)
 > - ...
 
 3. How will each group member contribute towards those steps? 
