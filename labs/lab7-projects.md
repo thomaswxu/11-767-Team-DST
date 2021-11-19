@@ -25,21 +25,25 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 1. What have you achieved today / this week? Was this more than you had planned to get done? If so, what do you think worked well?  
 > - Resolved the GCP admin issue with the CMU computing help. Successfully, set up a VM and the runtime python environment for HiTUT repo.
 > - Tested the HiTUT RoBERTa trained checkpoint on valid_seen of the ALFRED without the simulator.
+> - The total number of parameters in HiTUT is: **124.76 M** ;  while number of parameters in the seq2seq lstm model is : **45.93M**.
 > - The HiTUT model breaks the ALFRED naviagtion tasks into three sub-problems: sub-goal planning, scene navigation, and object manipulation.
-> - The following numbers are per action accuracy for all the sub-goals, navigation actions and the manipulation actions present in the validation seen dataset.
-
-| Actions | accuracy per action | mask accuracy |
-| --- | --- | --- |
-| sub-goals | 6.4k | 0.982 |
-| Navi. Actions | 39k |
-| Mani. actions | 8.3k|
-> - Here's are the statistics of the data distribution of the validation seen dataset in ALFRED.
+> - Here are the statistics of the data distribution of the validation seen dataset in ALFRED.
 
 | Actions | # data instances |
 | --- | --- |
 | sub-goals | 6.4k |
 | Navi. Actions | 39k |
 | Mani. actions | 8.3k|
+
+> - The following numbers are per action accuracy for all the sub-goals, navigation actions and the manipulation actions present in the validation seen dataset. T
+
+| Actions | action accuracy | mask accuracy |
+| --- | --- | --- |
+| sub-goals | 0.982 | NA |
+| Navi. Actions | 0.889 | NA |
+| Mani. actions | 0.996 | 0.969 |
+
+> - For the manipulation action sub-task, the model generates a segmentation mask on the current visual observation to indicate which object to interact with. he mask prediction is crucial because the action will not be successfully executed with an incorrect grounding even if is correctly predicted.
 
 > - Ran ALFRED Seq2Seq with split up loss components:
 
@@ -67,11 +71,11 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 
 2. Based on your work today / this week, and your answer to (1), what are your group's planned next steps?
 > Next Steps:
-> - Set up HiTUT repo on Jetson, measure latency/power/etc., compare on-device results to GCP results
-> - Quantize ALFRED Seq2Seq model on Jetson, and compare vs. unquantized version (latency, size, power consumption, etc.)
-> - ...
+> 1. Set up HiTUT repo on Jetson, measure latency/power/etc., apply early-exit techniques to speed-up inference, similar to this paper [BERT Loses Patience: Fast and Robust Inference with Early Exit](https://proceedings.neurips.cc//paper/2020/file/d4dd111a4fd973394238aca5c05bebe3-Paper.pdf)
+> 2. Quantize ALFRED Seq2Seq model on Jetson, and compare vs. unquantized version (latency, size, power consumption, etc.)
+> 3. Benchmark accuracy and efficiency metrics with decreasing vocabulary size, re-trained models with lower hidden dimensions and compare performance.
 
 3. How will each group member contribute towards those steps? 
-> - Saloni: 
-> - Dhruv:
-> - Thomas:
+> - Saloni: Focus on 1 
+> - Dhruv: Focus on 3, 2
+> - Thomas: Focus on 2, 3
