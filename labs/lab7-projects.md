@@ -35,7 +35,7 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 | Navi. Actions | 39k |
 | Mani. actions | 8.3k|
 
-> - The following numbers are per action accuracy for all the sub-goals, navigation actions and the manipulation actions present in the validation seen dataset. T
+> - The following numbers are per action accuracy for all the sub-goals, navigation actions and the manipulation actions present in the validation seen dataset.
 
 | Actions | action accuracy | mask accuracy |
 | --- | --- | --- |
@@ -43,7 +43,7 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 | Navi. Actions | 0.889 | NA |
 | Mani. actions | 0.996 | 0.969 |
 
-> - For the manipulation action sub-task, the model generates a segmentation mask on the current visual observation to indicate which object to interact with. he mask prediction is crucial because the action will not be successfully executed with an incorrect grounding even if is correctly predicted.
+> - For the manipulation action sub-task, the model generates a segmentation mask on the current visual observation to indicate which object to interact with. The mask prediction is crucial because the action will not be successfully executed with an incorrect grounding even if is correctly predicted.
 
 > - Ran ALFRED Seq2Seq with split up loss components:
 
