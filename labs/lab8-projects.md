@@ -23,7 +23,22 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 ----
 1. What have you achieved today / this week? Was this more than you had planned to get done? If so, what do you think worked well?  
 
+> - While running HiTUT on CPU, it uses around 2.2 GB of RAM with batch size of 1. As a preliminary experiment to compress model size, we performed int8 quantization of the linear layers of the model. Although, the model size reduces from 477 MB to 232 MB, there's a drastic loss in performance. The following table compares the original model's performance with the quantized model.
 
+Model| Actions | action accuracy | mask accuracy |
+---| --- | --- | --- |
+| | sub-goals | 0.982 | NA |
+original model| Navi. Actions | 0.889 | NA |
+|| Mani. actions | 0.996 | 0.969 |
+--- | --- | --- | --- |
+| sub-goals | 0.314 | NA |
+Quantized | Navi. Actions | 0.394 | NA |
+| Mani. actions | 0.150| 0.189 |
+| Actions | action accuracy | mask accuracy |
+| --- | --- | --- |
+| sub-goals | 0.982 | NA |
+| Navi. Actions | 0.889 | NA |
+| Mani. actions | 0.996 | 0.969 |
 3. What were the contributions of each group member towards all of the above?
 > - Saloni: 
 > - Dhruv: 
