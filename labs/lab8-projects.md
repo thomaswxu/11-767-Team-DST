@@ -41,7 +41,7 @@ Quantized | Navi. Actions | 0.394 | NA | NA |
 > - The embedding matrix for this particular model is particuarly very large, Embedding(50265, 768) with more than 50k vocab size. Next, we want to try out some embedding matrix compression techniques.
 > - For implementing early-exit methods on the HiTUT model, we require to do some training of additonal classification layers inserted at each layer of the transformer. We will do this after distilling this model into a 6-layer smaller model.
 
-> - Quantized ALFRED Seq2Seq model on Jetson. Results below:
+> Quantized ALFRED Seq2Seq model on Jetson. Results below:
 > - Fixed QConfig issues faced with Dynamic Quantization on-device.
 
 | Set | loss_action_low | loss_action_low_mask | loss_subgoal_aux | loss_progress_aux | action_low_f1 | action_low_em | total_loss |
