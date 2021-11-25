@@ -42,17 +42,27 @@ Quantized | Navi. Actions | 0.394 | NA | NA |
 > - For implementing early-exit methods on the HiTUT model, we require to do some training of additonal classification layers inserted at each layer of the transformer. We will do this after distilling this model into a 6-layer smaller model.
 
 > - Quantized ALFRED Seq2Seq model on Jetson. Results below:
+> - Fixed QConfig issues faced with Dynamic Quantization on-device.
 
 | Set | loss_action_low | loss_action_low_mask | loss_subgoal_aux | loss_progress_aux | action_low_f1 | action_low_em | total_loss |
 | ---   | --- | --- | --- | --- | --- | --- | --- |
 | valid_seen | 0.625  | 0.393  | 0.0013|0.0056 | 0.776 | 0.0 | 1.026 | 
 | valid_unseen | 1.283 | 1.998 | 0.001 | 0.0054 | 0.721 | 0.0 | 3.288 |
 
+> - The quantized model's loss and F1 scores are the same as the normal model's scores reported in the last lab. This is consistent with the observations from experiments run by Tutorials in PyTorch (https://pytorch.org/tutorials/intermediate/dynamic_quantization_bert_tutorial.html, https://pytorch.org/tutorials/advanced/dynamic_quantization_tutorial.html) and experiments discussed in the paper: [Q8BERT: Quantized 8Bit BERT](https://arxiv.org/pdf/1910.06188.pdf). 
+
 Inference RAM Consumption (Batch Size=8):
 | Model | RAM |
 | - | - |
 | Normal | 1074 MB |
-| Quantized | 89 
+| Quantized | 894 MB |
+
+Model Size:
+| Model | Size |
+| - | - |
+| Normal | 176 MB |
+| Quantized | 47.3 MB |
+
 
 > - UNKed many words from vocabulary of ALFRED Seq2Seq and retrained. Number of words in each vocab section is given in the table below.
 >   - UNK: Removing words from vocabulary and replacing them with a special "UNK" token to use for unknown words
@@ -80,13 +90,13 @@ Inference RAM Consumption (Batch Size=8):
 
 2. Based on your work today / this week, and your answer to (1), what are your group's planned next steps?
 > Next Steps:
-> 1. Retrain ALFRED Seq2Seq with shrunken input vocab size.
+> 1. Retrain ALFRED Seq2Seq with shrunken input vocab size and benchmark against original for accuracy/latency/etc.
 > 2. Embedding Matrix Compression for HiTUT ( the vocab size is more than 50k tokens)
-> 3. Distilling the HiTUT teacher model's knowledge into a smaller model
-> 4. Train the model to dynamically learn to early exit during inference.
+> 3. Distilling the HiTUT teacher model's knowledge into a smaller model.
+> 4. Train the HiTUT model to dynamically learn to early exit during inference.
 
 
 3. How will each group member contribute towards those steps? 
-> - Saloni: 
-> - Dhruv: 
-> - Thomas: 
+> - Saloni: 4, 3
+> - Dhruv: 2, 3
+> - Thomas: 1, 4
