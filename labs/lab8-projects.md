@@ -33,9 +33,10 @@ Original | Navi. Actions | 0.889 | NA |  NA |
 --- | --- | --- | --- | --- |
 | | sub-goals | 0.314 | 0.200 | NA |
 Quantized | Navi. Actions | 0.394 | NA | NA |
-| | Mani. actions | 0.150| 0.189 | 0.
+| | Mani. actions | 0.150| 0.270 | 0.189
 
 > - Quantized ALFRED Seq2Seq model on Jetson. Results below:
+
 (TODO)
 
 > - UNKed many words from vocabulary of ALFRED Seq2Seq and retrained.
@@ -46,11 +47,15 @@ Quantized | Navi. Actions | 0.394 | NA | NA |
 | Original | 2360 | 15 | 93 |
 | Prune <4 occurrences | . | . | . |
 
+**Challenges**
+> - HiTUT repo includes MKL packages (e.g. mkl-fft) as requirements, which are not supported on the Jetson's architecture. Will try removing these from the requirements and, if necessary, replacing them with a supported similar package.
+> - Quantized benchmark results from ALFRED Seq2Seq were very similar to the unquantized/original results. 
+
 
 3. What were the contributions of each group member towards all of the above?
-> - Saloni: 
-> - Dhruv: 
-> - Thomas: 
+> - Saloni: Quantization and comparison for HiTUT
+> - Dhruv: Quantization and comparison for ALFRED Seq2Seq
+> - Thomas: UNKing ALFRED Seq2Seq
 
 3: Next steps
 ----
