@@ -25,20 +25,28 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 
 > - While running HiTUT on CPU, it uses around 2.2 GB of RAM with batch size of 1. As a preliminary experiment to compress model size, we performed int8 quantization of the linear layers of the model. Although, the model size reduces from 477 MB to 232 MB, there's a drastic loss in performance. The following table compares the original model's performance with the quantized model.
 
-Model| Actions | action accuracy | mask accuracy |
----| --- | --- | --- |
-| | sub-goals | 0.982 | NA |
-original model| Navi. Actions | 0.889 | NA |
-|| Mani. actions | 0.996 | 0.969 |
---- | --- | --- | --- |
-| sub-goals | 0.314 | NA |
-Quantized | Navi. Actions | 0.394 | NA |
-| Mani. actions | 0.150| 0.189 |
-| Actions | action accuracy | mask accuracy |
-| --- | --- | --- |
-| sub-goals | 0.982 | NA |
-| Navi. Actions | 0.889 | NA |
-| Mani. actions | 0.996 | 0.969 |
+Model| Actions | action type accuracy | argument accuracy | mask accuracy |
+---| --- | --- | --- | --- | 
+| | sub-goals | 0.982 | 0.934 | NA |
+Original | Navi. Actions | 0.889 | NA |  NA |
+|| Mani. actions | 0.996 | 0.991 | 0.969 |
+--- | --- | --- | --- | --- |
+| | sub-goals | 0.314 | 0.200 | NA |
+Quantized | Navi. Actions | 0.394 | NA | NA |
+| | Mani. actions | 0.150| 0.189 | 0.
+
+> - Quantized ALFRED Seq2Seq model on Jetson. Results below:
+(TODO)
+
+> - UNKed many words from vocabulary of ALFRED Seq2Seq and retrained.
+>   - UNK: Removing words from vocabulary and replacing them with a special "UNK" token to use for unknown words
+
+| | words | action_low | action_high |
+| --- | --- | --- | --- |
+| Original | 2360 | 15 | 93 |
+| Prune <4 occurrences | . | . | . |
+
+
 3. What were the contributions of each group member towards all of the above?
 > - Saloni: 
 > - Dhruv: 
