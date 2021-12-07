@@ -10,21 +10,24 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 ----
 1. Plug your device in to the Kill-a-watt and run inference using your model to get a measurement of the energy draw. What is its baseline energy draw, and how does that compare to running inference?
 
-| State | Energy Usage (W) |
-| --- | --- |
-| Idle | 2.3 &pm; 0.1 |
-| Seq2Seq Inference | |
+| State | Batch Size | Avg. Latency (s) | Energy Usage (W) |
+| --- | --- | --- | --- |
+| Idle | N/A | N/A | 2.3 &pm; 0.1 |
+| Seq2Seq Inference | 1 | 28.15 | 6.3 &pm; 0.6 |
+| Seq2Seq Inference | 2 | 29.34 | 6.3 &pm; 0.6 |
+| Seq2Seq Inference | 4 | 35.18 | 6.4 &pm; 0.5 |
+| Seq2Seq Inference | 8 | 45.47 | 6.6 &pm; 0.5 |
 
 2. Multiply energy draw by inference time to get an estimate of energy required per inference (you can average over input size).
-> Seq2Seq:
+> Seq2Seq (Averaged over input size):
 > - Inference energy draw: 
 > - Average inference time: 
 > - Energy required per inference: **__**
 
 3. Multiply this by the carbon intensity of the location of your device. You can use [this resource](https://www.epa.gov/egrid/power-profiler#/).
-> - Device location: CMU Campus (NSH Basement), Pittsburgh PA
+> - Device location: **CMU Campus** (NSH Basement), Pittsburgh PA
 > - EPA eGRID region: [RFCW](https://www.epa.gov/egrid/power-profiler#/RFCW)
-> - Carbon intensity at this location: 1067.7 lbs CO2/MWh
+> - Carbon intensity at this location: **1067.7 lbs CO2/MWh**
 > - Estimated carbon usage per inference: **__**
 4. Please include at least this estimate in your final project report.
 
