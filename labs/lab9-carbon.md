@@ -34,7 +34,19 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 2: Training
 ----
 1. Did your project require training a model? If so, compute that estimate as well. If you used cloud resources, you can use [this tool](https://mlco2.github.io/impact/#compute) to help estimate. Otherwise, try to use the methods discussed last class for estmating carbon footprint due to training. Show your work and explain.
-> - ...
+> - We did some training of the HiTUT model using cloud resources. In particular, we used Google Cloud Platform (GCP) in the region us-central1, which has a carbon efficiency of **0.57 kg CO2/kWh**. A cumulative of **36 hours** of computation was performed on hardware of type Tesla K80 (TDP of 300W).
+
+Total emissions are estimated to be **6.16 kg CO2** of which 100 percent was directly offset by the cloud provider.
+    
+Estimations were conducted using the [MachineLearning Impact calculator](https://mlco2.github.io/impact#compute) presented in \cite{lacoste2019quantifying}.
+
+@article{lacoste2019quantifying,
+  title={Quantifying the Carbon Emissions of Machine Learning},
+  author={Lacoste, Alexandre and Luccioni, Alexandra and Schmidt, Victor and Dandres, Thomas},
+  journal={arXiv preprint arXiv:1910.09700},
+  year={2019}
+}
+
 
 3: Extra
 ----
