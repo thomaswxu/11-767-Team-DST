@@ -20,15 +20,15 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 
 2. Multiply energy draw by inference time to get an estimate of energy required per inference (you can average over input size).
 > Seq2Seq (Averaged over input size):
-> - Inference energy draw: 
-> - Average inference time: 
-> - Energy required per inference: **__**
+> - Inference energy draw: 6.4 W
+> - Inference time: 32.04 s
+> - Energy required per inference: **205.06 J**
 
 3. Multiply this by the carbon intensity of the location of your device. You can use [this resource](https://www.epa.gov/egrid/power-profiler#/).
 > - Device location: **CMU Campus** (NSH Basement), Pittsburgh PA
 > - EPA eGRID region: [RFCW](https://www.epa.gov/egrid/power-profiler#/RFCW)
 > - Carbon intensity at this location: **1067.7 lbs CO2/MWh**
-> - Estimated carbon usage per inference: **__**
+> - Estimated carbon usage per inference: **6.08 * 10<sup>-5</sup> lbs** (0.0276 g)
 4. Please include at least this estimate in your final project report.
 
 2: Training
