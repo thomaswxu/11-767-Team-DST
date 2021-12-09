@@ -27,25 +27,31 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 |  | 4 | 3.83 | 8.0 &pm; 0.5 |
 |  | 8 | 7.50 | 8.2 &pm; 0.5 |
 |  | 32 | 28.10 | 8.7 &pm; 1.0 |
-| HiTUT Inference (LP) {82.24}  | 2 | 2.6 | 7.9 &pm; 0.6 |
+| HiTUT Inference (LP) {82.24}  | 1 | 1.3 | 7.6 &pm; 0.6 |
+|  | 2 | 2.6 | 7.9 &pm; 0.6 |
 |  | 4 | 3.43 | 8.3 &pm; 0.5 |
 |  | 8 | 7.08 | 8.2 &pm; 0.3 |
 |  | 32 | 42.02 | 8.8 &pm; 2 |
+| HiTUT Inference (DQ) {124.76}  | 1 | 2.46 | 7.9 &pm; 0.6 |
+|  | 2 | 3.5 | 8.1 &pm; 0.3 |
+|  | 4 | 3.9 | 8.3 &pm; 0.6 |
+|  | 8 | 12.5 | 8.8 &pm; 0.3 |
+|  | 32 | 78.6 | 9.1 &pm; 1 |
 
-LP - Layer Pruning
-EF - Embedding Matrix Factorization
-
+LP - Layer Pruning;
+EF - Embedding Matrix Factorization;
+DQ - Dynamic Quantization
 
 
 **Note**: Seq2Seq refers to our quantized Seq2Seq, and HiTUT refers to our pruned HiTUT.
 
 2. Multiply energy draw by inference time to get an estimate of energy required per inference (you can average over input size).
-> Seq2Seq (Averaged over input size):
+> Seq2Seq (Averaged over batch size):
 > - Inference energy draw: 6.4 W
 > - Inference time: 21.50 s
 > - Energy required per inference: **137.60 J**
 
-> HiTUT (Averaged over input size):
+> HiTUT (Averaged over bath size):
 > - Inference energy draw: 8.1 W
 > - Inference time: 8.6 s
 > - Energy required per inference: **69.66 J**
