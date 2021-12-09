@@ -17,6 +17,13 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 | Seq2Seq Inference | 2 | 29.34 | 6.3 &pm; 0.6 |
 | Seq2Seq Inference | 4 | 35.18 | 6.4 &pm; 0.5 |
 | Seq2Seq Inference | 8 | 45.47 | 6.6 &pm; 0.5 |
+| HiTUT Inference | 1 | 1.24 | 7.6 &pm; 0.4 |
+| HiTUT Inference | 2 | 1.88 | 8.0 &pm; 0.5 |
+| HiTUT Inference | 4 | 3.83 | 8.0 &pm; 0.5 |
+| HiTUT Inference | 8 | 7.50 | 8.2 &pm; 0.5 |
+| HiTUT Inference | 32 | 28.10 | 8.7 &pm; 1.0 |
+
+**Note**: Seq2Seq refers to our quantized Seq2Seq, and HiTUT refers to our pruned HiTUT.
 
 2. Multiply energy draw by inference time to get an estimate of energy required per inference (you can average over input size).
 > Seq2Seq (Averaged over input size):
@@ -24,28 +31,27 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 > - Inference time: 32.04 s
 > - Energy required per inference: **205.06 J**
 
+> HiTUT (Averaged over input size):
+> - Inference energy draw: 8.1 W
+> - Inference time: 8.6 s
+> - Energy required per inference: **69.66 J**
+
 3. Multiply this by the carbon intensity of the location of your device. You can use [this resource](https://www.epa.gov/egrid/power-profiler#/).
 > - Device location: **CMU Campus** (NSH Basement), Pittsburgh PA
 > - EPA eGRID region: [RFCW](https://www.epa.gov/egrid/power-profiler#/RFCW)
 > - Carbon intensity at this location: **1067.7 lbs CO2/MWh**
-> - Estimated carbon usage per inference: **6.08 * 10<sup>-5</sup> lbs** (0.0276 g)
+> - Estimated carbon usage per inference:
+>     - Seq2Seq: **6.08 * 10<sup>-5</sup> lbs** (0.0276 g)
+>     - HiTUT: **2.07 * 10<sup>-5</sup> lbs** (0.0094 g)
+
 4. Please include at least this estimate in your final project report.
 
 2: Training
 ----
 1. Did your project require training a model? If so, compute that estimate as well. If you used cloud resources, you can use [this tool](https://mlco2.github.io/impact/#compute) to help estimate. Otherwise, try to use the methods discussed last class for estmating carbon footprint due to training. Show your work and explain.
-> - We did some training of the HiTUT model using cloud resources. In particular, we used Google Cloud Platform (GCP) in the region us-central1, which has a carbon efficiency of **0.57 kg CO2/kWh**. A cumulative of **36 hours** of computation was performed on hardware of type Tesla K80 (TDP of 300W).
-
-Total emissions are estimated to be **6.16 kg CO2** of which 100 percent was directly offset by the cloud provider.
-    
-Estimations were conducted using the [MachineLearning Impact calculator](https://mlco2.github.io/impact#compute) presented in \cite{lacoste2019quantifying}.
-
-@article{lacoste2019quantifying,
-  title={Quantifying the Carbon Emissions of Machine Learning},
-  author={Lacoste, Alexandre and Luccioni, Alexandra and Schmidt, Victor and Dandres, Thomas},
-  journal={arXiv preprint arXiv:1910.09700},
-  year={2019}
-}
+> - We did some training of the HiTUT model using cloud resources. In particular, we used Google Cloud Platform (GCP) in the region us-central1, which has a carbon efficiency of **0.57 kg CO2/kWh** (1.26 lbs CO2/kWh). A cumulative of **36 hours** of computation was performed on hardware of type Tesla K80 (TDP of 300W).
+> - Total emissions are estimated to be **6.16 kg CO2** (13.58 lbs CO2) of which 100 percent was directly offset by the cloud provider.  
+> - Estimations were conducted using the [MachineLearning Impact calculator](https://mlco2.github.io/impact#compute).
 
 
 3: Extra
