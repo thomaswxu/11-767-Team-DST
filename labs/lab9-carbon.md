@@ -17,11 +17,25 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 | Seq2Seq Inference | 2 | 10.22 | 6.3 &pm; 0.6 |
 | Seq2Seq Inference | 4 | 22.31 | 6.4 &pm; 0.5 |
 | Seq2Seq Inference | 8 | 46.63 | 6.6 &pm; 0.5 |
-| HiTUT Inference | 1 | 1.24 | 7.6 &pm; 0.4 |
-| HiTUT Inference | 2 | 1.88 | 8.0 &pm; 0.5 |
-| HiTUT Inference | 4 | 3.83 | 8.0 &pm; 0.5 |
-| HiTUT Inference | 8 | 7.50 | 8.2 &pm; 0.5 |
-| HiTUT Inference | 32 | 28.10 | 8.7 &pm; 1.0 |
+
+
+| Model (Compression Techniques) {Params} | Batch Size | Avg. Latency (s) | Energy Usage (W) |
+| --- | --- | --- | --- |
+|  |
+| HiTUT Inference (LP + EF){50.1}| 1 | 1.24 | 7.6 &pm; 0.4 |
+|  | 2 | 1.88 | 8.0 &pm; 0.5 |
+|  | 4 | 3.83 | 8.0 &pm; 0.5 |
+|  | 8 | 7.50 | 8.2 &pm; 0.5 |
+|  | 32 | 28.10 | 8.7 &pm; 1.0 |
+| HiTUT Inference (LP) {82.24}  | 2 | 2.6 | 7.9 &pm; 0.6 |
+|  | 4 | 3.43 | 8.3 &pm; 0.5 |
+|  | 8 | 7.08 | 8.2 &pm; 0.3 |
+|  | 32 | 42.02 | 8.8 &pm; 2 |
+
+LP - Layer Pruning
+EF - Embedding Matrix Factorization
+
+
 
 **Note**: Seq2Seq refers to our quantized Seq2Seq, and HiTUT refers to our pruned HiTUT.
 
