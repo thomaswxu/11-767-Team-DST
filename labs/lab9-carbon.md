@@ -13,10 +13,10 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 | State | Batch Size | Avg. Latency (s) | Energy Usage (W) |
 | --- | --- | --- | --- |
 | Idle | N/A | N/A | 2.3 &pm; 0.1 |
-| Seq2Seq Inference | 1 | 28.15 | 6.3 &pm; 0.6 |
-| Seq2Seq Inference | 2 | 29.34 | 6.3 &pm; 0.6 |
-| Seq2Seq Inference | 4 | 35.18 | 6.4 &pm; 0.5 |
-| Seq2Seq Inference | 8 | 45.47 | 6.6 &pm; 0.5 |
+| Seq2Seq Inference | 1 | 8.06 | 6.3 &pm; 0.6 |
+| Seq2Seq Inference | 2 | 10.22 | 6.3 &pm; 0.6 |
+| Seq2Seq Inference | 4 | 22.31 | 6.4 &pm; 0.5 |
+| Seq2Seq Inference | 8 | 46.63 | 6.6 &pm; 0.5 |
 | HiTUT Inference | 1 | 1.24 | 7.6 &pm; 0.4 |
 | HiTUT Inference | 2 | 1.88 | 8.0 &pm; 0.5 |
 | HiTUT Inference | 4 | 3.83 | 8.0 &pm; 0.5 |
@@ -28,8 +28,8 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 2. Multiply energy draw by inference time to get an estimate of energy required per inference (you can average over input size).
 > Seq2Seq (Averaged over input size):
 > - Inference energy draw: 6.4 W
-> - Inference time: 32.04 s
-> - Energy required per inference: **205.06 J**
+> - Inference time: 21.50 s
+> - Energy required per inference: **137.60 J**
 
 > HiTUT (Averaged over input size):
 > - Inference energy draw: 8.1 W
@@ -41,7 +41,7 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 > - EPA eGRID region: [RFCW](https://www.epa.gov/egrid/power-profiler#/RFCW)
 > - Carbon intensity at this location: **1067.7 lbs CO2/MWh**
 > - Estimated carbon usage per inference:
->     - Seq2Seq: **6.08 * 10<sup>-5</sup> lbs** (0.0276 g)
+>     - Seq2Seq: **4.08 * 10<sup>-5</sup> lbs** (0.0276 g)
 >     - HiTUT: **2.07 * 10<sup>-5</sup> lbs** (0.0094 g)
 
 4. Please include at least this estimate in your final project report.
