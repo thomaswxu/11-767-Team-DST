@@ -29,12 +29,12 @@ Group members present in lab today: Saloni Mittal, Dhruv Naik, Thomas Xu
 > Seq2Seq (Averaged over input size):
 > - Inference energy draw: 6.4 W
 > - Inference time: 21.50 s
-> - Energy required per inference: **137.60 J**
+> - Energy required per inference: 6.4 * 21.50 = **137.60 J**
 
 > HiTUT (Averaged over input size):
 > - Inference energy draw: 8.1 W
 > - Inference time: 8.6 s
-> - Energy required per inference: **69.66 J**
+> - Energy required per inference: 8.1 * 8.6 = **69.66 J**
 
 3. Multiply this by the carbon intensity of the location of your device. You can use [this resource](https://www.epa.gov/egrid/power-profiler#/).
 > - Device location: **CMU Campus** (NSH Basement), Pittsburgh PA
